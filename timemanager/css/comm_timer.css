@@ -1,0 +1,37 @@
+@charset "utf-8";
+body,html{font-family: "宋体"; }
+
+/* --------------多文本输入框-----------------------------begin*/
+textarea.textareaInput{margin-top:10px;outline:1px solid #b0b0b0;outline-offset:0px;border: none;resize:horizontal;padding-left: 3px;padding-top: 3px;}
+textarea.textareaInput:focus{outline:1px solid #1780fb;border: none;}
+/* --------------多文本输入框-----------------------------end*/
+
+/* --------------重写checkbox-----------------------------begin */
+input[type=checkbox]{-webkit-opacity: 0;opacity: 0;filter:alpha(opacity=0);  height:0px;width:0px;font-size: 0;position: absolute;z-index: -1;}
+input[type=checkbox]+label{display: inline-block;height: 16px;position: relative;}
+input[type=checkbox]+label:before{content: '';display: inline-block;background: url('../img/inputicon.png') no-repeat 0 0;height: 14px;width: 14px;outline:none;border:none;margin-right: 4px;vertical-align: middle;margin-top: -1px;}
+input:checked+label:before{content: '';display: inline-block;background: url('../img/inputicon.png') no-repeat 0 -15px;height: 14px;width: 14px;outline:none;border:none;margin-right: 4px;vertical-align: middle;}
+input[type=checkbox]+label.selectInput:before{content: '';display: inline-block;background: url('../img/inputicon.png') no-repeat 0 -15px;height: 14px;width: 14px;outline:none;border:none;margin-right: 4px;vertical-align: middle;}
+/* --------------重写checkbox-----------------------------end */
+
+/*--------文件长度超出时显示为...------------------------begin*/
+.nameEllipsis{text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+/*--------文件长度超出时显示为...------------------------end*/
+
+/* ----------------普通按钮-------------------------------begin */
+.btn{cursor:pointer;float: left;font-size:14px;width:90px;height:30px;line-height:30px;display: inline-block;border:none;outline:none;background-color: white;font-weight: bold;color: #505050;text-align: center;}
+.btn:hover,.btnFocus{color:white;background-color:#008fd0!important;}
+.btn:active{background-color: #2f6fac!important;color:white;}
+.btnDisable{color: #c8c8c8;}
+/* ----------------普通按钮-------------------------------end */
+
+/*-----------------title样式------------------------------begin*/
+p.titleStyle{font-family:"宋体";height: 35px;line-height: 35px;clear: both;font-size: 14px;color: #505050;font-weight: bold;}
+p.titleStyle>span{z-index: 5;position: relative;background: #FFFFFF;padding-right: 5px;}
+p.titleStyle:after{content: '';display: block;height: 1px;background: #DCDCDC;position: relative;top: -20px;}
+/*----------------title样式-------------------------------end*/
+
+/* -------------------输入框不可编辑-------------------------begin */
+.disableEdit{background: #f9f9f9;}
+/* -------------------输入框不可编辑-------------------------end */
+

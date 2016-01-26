@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<p id = "demo"></p>
+</body>
+</html>
+<script type="text/javascript">
+	var $p = document.getElementById("demo");
+	if (typeof(Worker) !== "undefined") {
+	    console.time("farbinache");
+	    var w = new Worker("woker.js");
+	    w.addEventListener("message", function(event) {
+	        console.timeEnd("farbinache");
+	        $p.innerHTML = event.data;
+	    });
+	    w.postMessage(45);
+
+	} else {
+	    alert("Your browser don't support worker API");
+	}
+</script>

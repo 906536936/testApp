@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery data 方法存对象</title>
+	</head>
+	<body>
+		<div id="demo">我去</div>
+		<button id="click">click me</button>
+	</body>
+	<script type="text/javascript" src="../jquery-2.1.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $demo = $("#demo");
+			$demo.data("info",{
+				age:18,
+				name:"alan"
+			});
+
+			$("#click").on({
+				click:function(){
+					console.log($demo.data("info"));
+				}
+			});
+
+		});
+
+	</script>
+</html>

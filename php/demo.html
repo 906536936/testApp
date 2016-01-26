@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="GBK">
+		<title>Document</title>
+		<script type="text/javascript" src="../jquery1.10.2.min.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				url:"phpecho.php",
+				type:"get",
+				dataType:"json",
+				cache:false,
+				beforeSend: function(xhr){
+					// xhr.overrideMimeType("text/plain;charset=GBK");
+				},
+				success: function(res){
+					$("div").text(res.message);
+					console.log(res);
+				}
+			});
+		</script>
+	</head>
+	<body>
+		
+		<div></div>
+	</body>
+</html>

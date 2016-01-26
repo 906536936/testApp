@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+	<button id="getTest">GET</button>
+<body>
+	<script type="text/javascript" src="../jquery1.10.2.min.js"></script>
+	<script type="text/javascript">
+		var  url = "http://web.eis/minipay/testApp/crossDomain/resController.php";
+		$(function(){
+			$("#getTest").on({
+				click:function(){
+					$.ajax({
+						url: url,
+						type: "get",
+						success: function(res) {
+							document.write(JSON.stringify(res));
+						}
+					});
+				}
+			});
+		});
+	</script>
+</body>
+</html>

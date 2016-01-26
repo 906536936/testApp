@@ -1,0 +1,80 @@
+html,body{overflow: hidden; }
+body{font-family: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei";}
+body{
+    background:url("data:image/png;base64,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") #082B4E;
+    background-attachment: fixed;
+    background-size: contain;
+}
+/* -----------标题部分------------begin */
+.header{height:40px; width:100%; top:0px; text-shadow: 0px 0px 20px yellow; position:absolute;  line-height: 40px; font-size: 24px; font-family: cursive;color: #B3F5D7;}
+/* -----------标题部分------------end */
+
+/* -----------footer-------------- */
+.header,.footer{vertical-align: middle;text-align: center;}
+.footer{height: 40px;width: 100%;bottom: 0px;position: absolute;text-align: center;font-size: 12px;font-weight: bold;}
+.page-indicator{ transition: all ease 0.5s; display: inline-block;height: 20px;line-height: 20px;width:20px;border-radius: 50%; background: white; margin: 10px;    color: black;border:1px solid #dcdcdc;}
+.page-indicator.focus,.page-indicator:hover{background: blue;border:1px solid #dcdcdc;color: white;border-color:blue;cursor: pointer;box-shadow: 0 0 10px blue;}
+/* -----------footer-------------- */
+
+.content{position: absolute;top: 40px;bottom: 40px;left: 0;right: 0;overflow: auto;background: white; opacity: 0.85;}
+
+.hide{display:none; }
+
+/* -----------卡片管理区域--------beign */
+.planning-area{ }
+/* -----------卡片管理区域--------beign */
+
+/* -----------日历管理区域--------begin */
+.calendar-area{ background:#a9a9a9; }
+/* -----------日历管理区域--------end */
+
+/* -----------统计图区域----------beign */
+.statistics-area{background:#dcdcdc; }
+/* -----------统计图区域----------end */
+
+.module-area{height: 0;width:0;display: none;}
+.module-area.show{height: calc(100vh - 40px - 40px);width: 100%;display: block;}
+
+.main-container{margin:0%; width:80%; height:100%; float:left; }
+
+/* ----------侧边栏--------------begin */
+.side-container{width:19.5%; height:100%; float:left; }
+.sub-container{float:left; width:calc(50% - 6px); height:calc(50% - 6px); margin:2px; border:1px solid gray; position: relative; }
+.side-container > .processing{margin:2px; height:calc( 70% - 6px); border:1px solid gray; overflow: auto;}
+.side-container > .done{margin:2px; height:calc(30% - 6px); border:1px solid gray; overflow: auto;}
+.done .card .tools,.processing .card .tools{display: none;}
+/* ----------侧边栏--------------end */
+
+.card-container{height: calc(100% - 30px);overflow: auto;}
+
+/*  ----------单个task card--------begin */
+.card-state-highlight{  background: #eee8ab;}
+.card{border:1px black solid; cursor:pointer;background: white; }
+.card,.card-state-highlight{margin:2px 2px 8px 2px; width:95%; height: 40px; line-height: 40px;}
+.card.focusCard{border:1px solid #008FD0;box-shadow: 2px 2px 5px #A8AB07; }
+.card .inputContainer{height: 100%;overflow: hidden;}
+.card .tools{height: 100%;float: right;width: 40px;background: #dcdcdc;}
+.card .tools .move{display: inline-block; width: 100%; height: 100%; background: url(../img/list.png) center center no-repeat;}
+.card .inputContainer textarea{background:transparent;outline-color: transparent;width: calc(100% - 20px);height: calc(100% - 10px);padding:3px;margin: 2px;resize: none;border:none;font-size: 14px;}
+.card .inputContainer .statusTips{height: 100%;width: 10px;display: inline-block;}
+.card .inputContainer textarea:focus{}
+/*  ----------单个task card--------end */
+
+/* ---------未完成的为red------- */
+.sub-container .statusTips{background: red;}
+/* ---------正在的为blue----------- */
+.processing .statusTips{background: blue;}
+/* ----------已完成---------------- */
+.done .statusTips{background: green;}
+
+/* --------------添加按钮----------begin */
+.add-button{width:100%;height: 29px; line-height: 30px; border-top:1px dotted black;cursor:pointer; color: #000000;position: absolute;bottom: 0;left: 0;right: 0; text-align: center;}
+.add-button:hover{color: #FFFFFF; background: #008FD0; }
+/* --------------添加按钮----------end */
+
+/* --------------重写chrome滚动条--begin */
+::-webkit-scrollbar{width: 6px; height: 6px; }
+::-webkit-scrollbar-track-piece{background-color: #CCCCCC; -webkit-border-radius: 6px; }
+::-webkit-scrollbar-thumb:vertical{height: 5px; background-color: #999999; -webkit-border-radius: 6px; }
+::-webkit-scrollbar-thumb:horizontal{width: 5px; background-color: #CCCCCC; -webkit-border-radius: 6px; }
+/* --------------重写chrome滚动条--end */

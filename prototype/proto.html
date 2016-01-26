@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function Person(name){
+			this.name = name;
+		}
+
+		Person.prototype.sayHello = function(){
+			alert(this.name);
+		}
+
+		function Student(){
+
+		}
+
+		Student.prototype.right = function(){
+			alert(1);
+		}
+
+		var temp = Object.create(Student.prototype);
+
+		Student.prototype = new Person("aaln");
+
+		var student = new Student();
+		
+		console.log("right" in student);
+
+		console.log(temp);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

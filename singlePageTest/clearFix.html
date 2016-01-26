@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>无标题</title>
+	<style type="text/css">
+		body,html{
+			margin: 0;
+			padding:0;
+		}
+		.clearfix:after{content: '.'; visibility: hidden; height: 0; font-size: 0; clear: both; display: block; }
+		.clearfix{*zoom:1;   /* FOR IE6 */ }
+		.floatLeft{float: left; }
+		.div1,.div2,.div3{height: 200px; margin:10px; border:1px solid orange; display: inline-block; }
+
+		.div1{background: red; width: 200px; }
+		.div2{background: blue; width: 250px; }
+		.div3{width: 300px; background: yellow; }
+		
+		.testDiv{float:left;width:80px;height:80px;border:1px solid blue;}
+	</style>
+</head>
+<body>
+	<div class="div1 floatLeft"></div>
+	<div class="div2 floatLeft clearfix"></div>
+	<div class="div3 "></div>
+	<p></p><p></p><p></p><p></p>
+	<div style="border:2px solid red;" class="clearfix">
+		<div class='testDiv'>TEST DIV</div>
+		<div class='testDiv'>CSSBBS</div>
+		<div class='testDiv'>TEST DIV</div>
+		<div class='testDiv'>TEST DIV</div>
+		<div class='testDiv'>TEST DIV</div>
+	</div>
+</body>
+</html>

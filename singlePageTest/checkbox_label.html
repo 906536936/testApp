@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>使用label重新checkbox组件</title>
+	<style type="text/css">
+		label{
+			display: inline-block;
+			height: 14px;
+			position: relative;
+		}
+		input[type=checkbox]{
+			opacity: 0;
+			display: none;
+		}
+		label:before{
+			content: '';
+			display: inline-block;
+			height: 14px;
+			width: 14px;
+			outline:1px solid black;
+			border:none;
+			margin-right: 3px;
+		}
+		input:checked+label:after{
+			content: '';
+			display: inline-block;
+			border:2px solid green; 
+			border-top: none;
+			border-right: none;
+			-webkit-transform: rotate(-55deg);
+			   -moz-transform: rotate(-55deg);
+			    -ms-transform: rotate(-55deg);
+			     -o-transform: rotate(-55deg);
+			        transform: rotate(-55deg);
+			height: 6px;
+			width: 11px;
+			position: absolute;
+			left: 1px;
+			top:2px;
+		}
+	</style>
+</head>
+<body>
+	<input type="checkbox" id="check1"/><label for="check1" accesskey="C">我的世界</label>
+	<input type="checkbox" id="check2"/><label for="check2" accesskey="H">我的世界2</label>
+</body>
+</html>

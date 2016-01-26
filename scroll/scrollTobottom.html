@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery1.10.2.min.js"></script>
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		body {
+			text-align: center;
+		}
+		.demo1{
+			position: absolute;
+			width: 200px;
+			display: inline-block;
+			height: 500px;
+			border: 1px solid gray;
+			overflow: auto;
+		}
+		.inner{
+			width: 100%;
+			height: 1000px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			 $("div.demo1").scroll(function(event) {
+			 	var $this = $(this),  
+                    viewH = $(this).height(),					//可见高度  
+           		 contentH = $(this).get(0).scrollHeight,		//内容高度  
+                scrollTop = $(this).scrollTop();				//滚动高度  
+        		if(contentH - viewH - scrollTop <= 5) {         //到达底部100px时,加载新内容   
+		        	console.log("bottom");
+		        	$("div.inner").stop(true,true).animate({
+		        		height: "+=500px"
+		        	},0);
+		        }  
+			 });
+		});
+	</script>
+</head>
+<body>
+	<div class="demo1">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

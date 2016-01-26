@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#jsonp").on({
+				click: function(){
+					
+					$.ajax({
+						url:"serverRes.php",
+						cache:false,
+						type:"get",
+						dataType:"jsonp",
+						scriptCharset:"utf-8",
+						//jsonpCallback: "logRes",
+						jsonp : "callback",
+						success: function(res){
+							
+							logRes(res);
+							
+						}
+					});
+
+				}
+			});
+		});
+
+		function logRes(res){
+			alert(JSON.stringify(res));
+		}
+	</script>
+</head>
+<body>
+	<button id="jsonp">jsonp</button>
+</body>
+</html>
