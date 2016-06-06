@@ -33,5 +33,5 @@ h1,h2,h3,h4,h5,h6{font-size: 100%;}
 /*------------清除浮动------------------end */
 
 /*--IE9不支持placeholder，故自定义属性--begin*/
-.placeholder  {font-size: 12px;color: #969696;!important;}
+.placeholder  {font-size: 12px;color: #969696!important;}
 /*--IE9不支持placeholder，故自定义属性--end*/
