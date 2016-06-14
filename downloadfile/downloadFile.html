@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>通过js的方式来下载文件</title>
+    </head>
+    <body>
+        <textarea id="textarea" cols="70" rows="10">写点什么。。。。</textarea><br/>
+        <button id="download">点击保存</button><br/><br/>
+        <button id="downloadOnline">直接下载在线文件</button><br/>
+        <a  id="link" href download></button>
+    </body>
+    <script type="text/javascript">
+        var contents = document.querySelector("#textarea").value;
+        var $link    = document.querySelector("#link");
+
+        // 点击下载为xml文件
+        document.querySelector("#download").addEventListener("click",function(){
+            $link.setAttribute("href",fileDownLoad.creatURLByContent(contents,"text/xml"));
+            $link.click();
+        },false);
+
+        // 直接下载在线文件
+        document.querySelector("#downloadOnline").addEventListener("click",function(){
+            $link.setAttribute("href","./demo.xml");
+            $link.click();
+        },false);
+
+        var fileDownLoad = {
+            /**
+             * [creatURLByContent 根据文件内容及类型生成URL对象]
+             * @param  {[type]} content [文件的内容]
+             * @param  {[type]} mime    [文件的类型，符合MIME标准]
+             * @return {[type]}         [description]
+             */
+            creatURLByContent: function (content,mime) {
+                var bb = new Blob([content], {type: mime});
+                var url = window.URL.createObjectURL(bb);
+                return url;
+            }
+        };
+
+    </script>
+</html>
