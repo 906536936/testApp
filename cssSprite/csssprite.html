@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <style type="text/css">
+            html,body{height:100%;width:100%;}
+            div{
+                background-image:url("./redpackets.png");
+                background-repeat:no-repeat;
+                background-size:8.11rem 2.29rem;
+                width:2.5rem;
+                height:2rem;
+                background-color:red;
+            }
+            div:nth-child(1){
+                background-position:-0.3rem -0.3rem;
+            }
+            div:nth-child(2){
+                background-position:-2.80rem -0.3rem;
+            }
+            html{
+                font-size:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <br/>
+        <div></div>
+    </body>
+    <script type="text/javascript" src="../jquery1.10.2.min.js"></script>
+    <script type="text/javascript">
+        var tender = {
+            $j_root: document.querySelector("html"),
+            // 设计稿尺寸
+            BASE_SIZE:750,
+
+            // 默认的rem值
+            BASE_FONT: 100,
+            /**
+             * [changeRem 根据尺寸改变rem值]
+             * @return {[type]} [description]
+             */
+            changeRem: function() {
+                var docEl = window.document.documentElement;
+                // 设备尺寸
+                var width = docEl.getBoundingClientRect().width;
+
+                this.$j_root.style.fontSize = width / this.BASE_SIZE * this.BASE_FONT + "px";
+            },
+            bindEvent:function(){
+                window.onresize = function(){
+                    tender.changeRem();
+                }
+            }
+        };
+        tender.bindEvent();
+        tender.changeRem();
+    </script>
+</html>
