@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>图片旋转木马</title>
+		<style type="text/css">
+			.spinner{
+				position:absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+				margin:auto;
+				height:300px;
+				width:80%;
+			    perspective: 380px;
+			}
+			.container{
+				width:111px;
+				height:141px;
+				position:absolute;
+				top:50%;
+				left:50%;
+				margin-left:-55px;
+				margin-top:-70px;
+				transform-style: preserve-3d;
+				transition: transform .5s ease-in-out;
+
+			}
+			img{width:111px; position:absolute; height:141px;}
+			img:nth-child(10){transform: rotateY(0deg) translateZ(190px);}
+			img:nth-child(1){transform: rotateY(36deg) translateZ(190px);}
+			img:nth-child(2){transform: rotateY(72deg) translateZ(190px);}
+			img:nth-child(3){transform: rotateY(108deg) translateZ(190px);}
+			img:nth-child(4){transform: rotateY(144deg) translateZ(190px);}
+			img:nth-child(5){transform: rotateY(180deg) translateZ(190px);}
+			img:nth-child(6){transform: rotateY(216deg) translateZ(190px);}
+			img:nth-child(7){transform: rotateY(252deg) translateZ(190px);}
+			img:nth-child(8){transform: rotateY(288deg) translateZ(190px);}
+			img:nth-child(9){transform: rotateY(324deg) translateZ(190px);}
+		</style>
+	</head>
+	<body>
+		<div class="spinner">
+			<div class="container">
+				<img src="src/1.jpg" alt="图片">
+				<img src="src/2.jpg" alt="图片">
+				<img src="src/3.jpg" alt="图片">
+				<img src="src/4.jpg" alt="图片">
+				<img src="src/5.jpg" alt="图片">
+				<img src="src/6.jpg" alt="图片">
+				<img src="src/7.jpg" alt="图片">
+				<img src="src/8.jpg" alt="图片">
+				<img src="src/9.jpg" alt="图片">
+				<img src="src/10.jpg" alt="图片">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../jquery1.10.2.min.js"></script>
+	<script type="text/javascript">
+		var $container = $(".container");
+		$(".container").on({
+			click: function (argument) {
+			 	var offset = $(".container").data("index") - 0 + 1 ;
+				var tans   = offset * 36 ;
+				$container.css({
+					"transform":"rotateY("+tans+"deg)"
+				}).data("index",offset);
+			}
+		},"img").data("index","0");
+	</script>
+</html>

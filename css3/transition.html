@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>transition 变换</title>
+		<meta charset="utf-8">
+		<style>
+			div {
+				width:100px;
+				height:100px;
+				background:blue;
+
+				-webkit-transition: width 1s linear 2s;
+				   -moz-transition: width 1s linear 2s;
+					-ms-transition: width 1s linear 2s;
+				     -o-transition: width 1s linear 2s;
+				        transition: width 1s linear 2s;
+			}
+			div:hover {
+				width:300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<p>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。</p>
+		<p><b>注释：</b>过渡效果会在开始前等待2秒钟。</p>
+		<p><b>注释：</b>本例在 Internet Explorer 中无效。</p>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>图片旋转木马</title>
+		<style type="text/css">
+			.spinner{
+				position:absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+				margin:auto;
+				height:300px;
+				width:80%;
+			    perspective: 800px;
+			}
+			.container{
+				width:111px;
+				height:141px;
+				position:absolute;
+				top:50%;
+				left:50%;
+				margin-left:-55px;
+				margin-top:-70px;
+				transform-style: preserve-3d;
+				transition: transform .5s ease-in-out;
+			}
+			.target{
+				position:absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+				margin:auto;
+				width:200px;
+			}
+			.container img{width:111px; position:absolute; height:141px;}
+			.container img:nth-child(10){transform: rotateZ(0deg) translateX(250px);}
+			.container img:nth-child(1){transform: rotateZ(36deg) translateX(250px);}
+			.container img:nth-child(2){transform: rotateZ(72deg) translateX(250px);}
+			.container img:nth-child(3){transform: rotateZ(108deg) translateX(250px);}
+			.container img:nth-child(4){transform: rotateZ(144deg) translateX(250px);}
+			.container img:nth-child(5){transform: rotateZ(180deg) translateX(250px);}
+			.container img:nth-child(6){transform: rotateZ(216deg) translateX(250px);}
+			.container img:nth-child(7){transform: rotateZ(252deg) translateX(250px);}
+			.container img:nth-child(8){transform: rotateZ(288deg) translateX(250px);}
+			.container img:nth-child(9){transform: rotateZ(324deg) translateX(250px);}
+		</style>
+	</head>
+	<body>
+		<div class="spinner">
+			<div class="container">
+				<img src="src/1.jpg" alt="图片">
+				<img src="src/2.jpg" alt="图片">
+				<img src="src/3.jpg" alt="图片">
+				<img src="src/4.jpg" alt="图片">
+				<img src="src/5.jpg" alt="图片">
+				<img src="src/6.jpg" alt="图片">
+				<img src="src/7.jpg" alt="图片">
+				<img src="src/8.jpg" alt="图片">
+				<img src="src/9.jpg" alt="图片">
+				<img src="src/10.jpg" alt="图片">
+			</div>
+			<img src="src/10.jpg" alt="图片" class="target" />
+		</div>
+	</body>
+	<script type="text/javascript" src="../../jquery1.10.2.min.js"></script>
+	<script type="text/javascript">
+		var $container = $(".container"),
+			$target    = $(".target");
+		$(".container").on({
+			click: function (argument) {
+			 	var offset = $(".container").data("index") - 0 + 1 ;
+				var tans   = offset * 36 ;
+				$container.css({
+					"transform":"rotateZ("+tans+"deg)"
+				}).data("index",offset);
+
+				$target.attr("src",$(this).attr("src"));
+			}
+		},"img").data("index","0");
+	</script>
+</html>

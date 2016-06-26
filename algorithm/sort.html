@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>常见排序</title>
+	</head>
+	<body>
+		<div>常用排序</div>
+	</body>
+	<script type="text/javascript" src="sort.js"></script>
+	<script type="text/javascript">
+		var originalArr = [2,5436,324,42,14,154,53,100];
+
+		// 冒泡排序
+		sortUtil.bubbleSort(originalArr).toString();
+		
+		// 快速排序
+		sortUtil.qucikSort(originalArr).toString();
+
+		// 选择排序
+		sortUtil.selectionSort(originalArr).toString();		
+
+		// 插入排序
+		sortUtil.insertSort(originalArr).toString();
+
+	</script>
+</html>

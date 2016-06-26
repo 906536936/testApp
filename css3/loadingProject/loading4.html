@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			.spinner{
+				width:126px; 
+				height:15px;
+				text-align:center;
+				box-shadow: 0px 0px 6px #A58989;
+				background:white;
+				position: absolute;
+				left: 0;
+				top:0;
+				right:0;
+				bottom:0;
+				margin:auto;
+			}
+			.spinner div.dot{
+				width:6px;
+				height:100%;
+				float:left;
+				margin: 0 6px 0 0;
+				display:inline-block;
+				background:#E4E2E2;
+				position:relative;
+				z-index:10;
+				
+			}
+			.spinner div:nth-last-child(2){
+				margin-right:0;
+			}
+
+			.bottom{
+				position:absolute;
+				height:100%;
+				width:0;
+				left:0;
+				z-index:9;
+				background:black;
+				animation:change 1.5s ease-in-out infinite;
+			}
+			@keyframes change {
+				100% {
+					width:100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="spinner">
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class="bottom"></div>
+		</div>
+	</body>
+</html>

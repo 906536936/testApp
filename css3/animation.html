@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			div {
+				width:500px;
+				height:500px;
+				line-height:500px;
+				text-align:center;
+				background:red;
+				font-size:12px;
+				border:1px solid green;
+				vertical-align:center;
+				font-weight:bolder;
+				-webkit-animation: myfirst 5s ease-in-out 3/* infinite */; /* Safari and Chrome */
+				   -moz-animation: myfirst 5s ease-in-out 3/* infinite */; /* Firefox */
+				    -ms-animation: myfirst 5s ease-in-out 3/* infinite */; /* IE */
+					 -o-animation: myfirst 5s ease-in-out 3/* infinite */; /* Opera */
+				        animation: myfirst 5s ease-in-out 3/* infinite */;
+			}
+			@-moz-keyframes myfirst{
+				30% {background:blue;font-size:18px;}
+				50% {background:yellow;font-size:24px;}
+				100% {background:orange;font-size:30px;}
+			}
+			@-ms-keyframes myfirst{
+				30% {background:blue;font-size:18px;}
+				50% {background:yellow;font-size:24px;}
+				100% {background:orange;font-size:30px;}
+			}
+			@-o-keyframes myfirst{
+				30% {background:blue;font-size:18px;}
+				50% {background:yellow;font-size:24px;}
+				100% {background:orange;font-size:30px;}
+			}
+			@keyframes myfirst{
+				30% {background:blue;font-size:18px;}
+				50% {background:yellow;font-size:24px;}
+				100% {background:orange;font-size:30px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div>See You Again</div>
+	</body>
+	<script type="text/javascript">
+		var ele = document.querySelector("div");
+		ele.addEventListener("animationend", function (e) {
+			 console.log(e); 
+		})
+	</script>
+</html>
