@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>预加载，且不影响页面的正常解析</title>
+        <style type="text/css" media="screen">
+            img{
+                position:relative;
+                width:500px;
+                height:200px;
+            }
+            img::after {
+              content: attr(broke) "  not found " "\25c6";
+              display: block;
+              font-size: 16px;
+              font-style: normal;
+              font-family: FontAwesome;
+              color: rgb(100, 100, 100);
+
+              position: absolute;
+              top: 5px;
+              left: 0;
+              width: 100%;
+              text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="#url1">When the crisis was over,  <object><a href="#url2">Mr. Jones</a></object> left the region immediately.</a>
+        预加载，且不影响页面的正常解析
+        <br/><br/><br/>
+        <img broke="demo.png" alt="  "/>
+    </body>
+    <script type="text/javascript">
+        window.onload = function() {
+
+            setTimeout(function() {
+
+                // reference to <head>
+                var head = document.getElementsByTagName('head')[0];
+
+                // a new CSS
+                var css = document.createElement('link');
+                css.type = "text/css";
+                css.rel  = "stylesheet";
+                css.href = "demo.css";
+
+                // a new JS
+                var js  = document.createElement("script");
+                js.type = "text/javascript";
+                js.src  = "demo.js";
+
+                // preload JS and CSS
+                head.appendChild(css);
+                head.appendChild(js);
+
+                // preload image
+                new Image().src = "demo.png";
+
+            }, 100000);
+
+        };
+    </script>
+</html>
