@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>测试deferred对象</title>
+    </head>
+    <body>
+
+    </body>
+    <script src="../jquery1.10.2.min.js"></script>
+    <script>
+        function testDef() {
+            var def = $.Deferred();
+            $.ajax({
+                url:"../php/phpecho.php",
+                dataType:"json",
+                type:"get",
+                success: function (data) {
+                    if (data.ret === 1) {
+                        def.resolve("success");
+                    } else {
+                        def.reject("fail");
+                    }
+
+                }
+            });
+            return def;
+
+        }
+
+        var def = testDef();
+        def.done(function (m) {
+            alert(m);
+        }).fail(function (m) {
+            alert(m);
+        });
+    </script>
+</html>
