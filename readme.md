@@ -21,3 +21,4 @@
 - tempalte: art-template的小例子
 - timemanage：时间管理基础模型
 - webworker：webworker小例子
+- deffered： 用于测试deffered对象的使用方法
