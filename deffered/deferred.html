@@ -16,7 +16,7 @@
                 dataType:"json",
                 type:"get",
                 success: function (data) {
-                    if (data.ret === 1) {
+                    if (data.ret === 0) {
                         def.resolve("success");
                     } else {
                         def.reject("fail");
@@ -25,7 +25,6 @@
                 }
             });
             return def;
-
         }
 
         var def = testDef();
