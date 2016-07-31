@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>刷新动画</title>
+        <style type="text/css">
+            .container{
+                width:64px;
+                height:64px;
+                background-color:#34333e;
+                border-radius:50%;
+                background-repeat:no-repeat;
+                zoom:0.6;
+            }
+            .warp{
+                background-image:url('1.png');
+                width:64px;
+                height:64px;
+            }
+            .refresh{
+                animation-name:refresh;
+                animation-duration:2.1s; ease 1;
+                animation-timing-function:ease;
+                animation-iteration-count:1;
+                animation-fill-mode:forwards;
+            }
+
+            @keyframes refresh {
+                60%{
+                    transform: rotateZ(360deg);
+                    opacity:0.3;
+                }
+                70%{
+                    background-image:url('2.png');
+                    transform: rotateZ(360deg);
+                    opacity:1;
+                }
+                80%{
+                    opacity:0.3;
+                    transform: rotateZ(360deg);
+                }
+                100% {
+                     background-image:url('1.png');
+                     opacity:1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="warp"></div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var $warp = document.querySelector(".warp");
+        $warp.addEventListener("animationend", function(){
+            // this.classList.remove("refresh");
+        })
+        $warp.addEventListener("click",function(){
+            this.classList.add("refresh");
+        });
+    </script>
+</html>
