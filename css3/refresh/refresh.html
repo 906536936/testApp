@@ -8,56 +8,122 @@
                 width:64px;
                 height:64px;
                 background-color:#34333e;
+                opacity: 0.7;
                 border-radius:50%;
                 background-repeat:no-repeat;
-                zoom:0.6;
             }
-            .warp{
-                background-image:url('1.png');
+            .first, .second, .third{
                 width:64px;
                 height:64px;
+                display: inline-block;
+                animation-timing-function:ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode:both;
+                position: absolute;
             }
-            .refresh{
-                animation-name:refresh;
-                animation-duration:2.1s; ease 1;
-                animation-timing-function:ease;
-                animation-iteration-count:1;
-                animation-fill-mode:forwards;
+            .first{
+                background-image: url("1.png");
+            }
+            .active .first {
+                animation-name:first;
+                animation-duration:1.12s;
+                z-index: 10;
+            }
+            .active .second {
+                background-image: url("2.png");
+                animation-name:second;
+                animation-duration:2.44s;
+                z-index: 20;
+            }
+            .active .third {
+                background-image: url("1.png");
+                animation-name:third;
+                animation-duration:1.84s;
+                z-index: 30;
             }
 
-            @keyframes refresh {
-                60%{
-                    transform: rotateZ(360deg);
-                    opacity:0.3;
+            @keyframes first {
+                0%{
+                    transform: rotateZ(0deg);
                 }
-                70%{
-                    background-image:url('2.png');
-                    transform: rotateZ(360deg);
-                    opacity:1;
+                64.5% {
+                    opacity: 1;
                 }
-                80%{
-                    opacity:0.3;
-                    transform: rotateZ(360deg);
+                90.32%{
+                    opacity: 0;
                 }
                 100% {
-                     background-image:url('1.png');
-                     opacity:1;
+                    transform: rotateZ(360deg);
+                    opacity: 0;
                 }
             }
+
+            @keyframes second {
+                0%{
+                    transform: rotateZ(0);
+                    opacity: 0;
+                }
+                32.78%{
+                    opacity: 0;
+                }
+                45.90%{
+                    opacity: 1;
+                }
+                50.81%{
+                    transform: rotateZ(360deg);
+                }
+
+                55.73%{
+                    opacity: 1;
+                }
+
+                68.85%{
+                    opacity: 0;
+                }
+                100%{
+                    opacity: 0;
+                    transform: rotateZ(720deg);
+                }
+            }
+
+            @keyframes third {
+                0%{
+                    opacity: 0;
+                }
+                23.91%{
+                    transform: rotateZ(0);
+                }
+                73.91%{
+                    opacity:0;
+                }
+                91.30%{
+                    opacity: 1;
+                }
+                100% {
+                    transform: rotateZ(360deg);
+                }
+            }
+
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="warp"></div>
+            <i class="first"></i>
+            <i class="second"></i>
+            <i class="third"></i>
         </div>
     </body>
+    <script type="text/javascript" src="../../jquery1.10.2.min.js"></script>
     <script type="text/javascript">
-        var $warp = document.querySelector(".warp");
-        $warp.addEventListener("animationend", function(){
-            // this.classList.remove("refresh");
-        })
-        $warp.addEventListener("click",function(){
-            this.classList.add("refresh");
+        $(".container").on({
+            click:function(){
+                this.classList.add("active");
+            }
+        });
+        $(".second").on({
+            animationend:function(){
+                $(this).parent().removeClass("active");
+            }
         });
     </script>
 </html>
