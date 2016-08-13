@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../normalize.css">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+        <title>canvas基本用法-矩形</title>
+        <style type="text/css">
+            body{
+                padding: 10px;
+            }
+            #mycanvas1{
+                /* width: 400px; */
+                border: 1px solid red;
+                margin: 0 auto;
+                /* height: 300px; */
+            }
+        </style>
+        <script type="text/javascript" src="../jquery-2.1.1.js"></script>
+    </head>
+
+
+    <body>
+        <canvas id="mycanvas1"></canvas>
+        <p id="clearVanvas">
+            <button id="clearAll" class="btn btn-default">清除全部canvas</button><br/>
+            <button id="clearRect1" class="btn btn-default">清除第1个rect</button>
+            <button id="clearRect2" class="btn btn-default">清除第2个rect</button>
+            <button id="clearRect3" class="btn btn-default">清除第3个rect</button>
+            <button id="clearRect4" class="btn btn-default">清除第4个rect</button>
+            <button id="clearRect5" class="btn btn-default">清除第5个rect</button>
+            <button id="clearRect6" class="btn btn-default">清除第6个rect</button>
+        </p>
+    </body>
+
+    <script type="text/javascript">
+        var canvas = document.querySelector("#mycanvas1");
+        var ctx = canvas.getContext("2d");
+
+        var rectAttr =  [
+            { x: 0,   y: 0,   w: 100, h: 100 },
+            { x: 120, y: 0,   w: 100, h: 100 },
+            { x: 0,   y: 120, w: 100, h: 100 },
+            { x: 120, y: 120, w: 100, h: 100 },
+            { x: 240, y: 0,   w: 100, h: 100 },
+            { x: 240, y: 120, w: 100, h: 100 }
+        ];
+
+        var drew = function(index,drewtype){
+            var rect = rectAttr[index];
+            ctx[drewtype+"Rect"](rect.x,rect.y,rect.w,rect.h);
+        };
+
+        /**
+         * [
+         * 1.设置canvas的大小，chrome 中canvas默认值是300x150大小，如果通过css来设置canvas的高宽，则会现对于默认大小将图像缩放
+         * 2.不建议通过css的方式来设置canvas 的大小,直接通过属性的方式来设置
+         * 3.设置大小需要放在最前面，否则改变大小会直接清除canvas内容
+         * @return {[type]} [description]
+         */
+        ~function(){
+            canvas.setAttribute("width","400");
+            canvas.setAttribute("height","300");
+        }();
+
+        // 绘制矩形
+        ~function(){
+
+            // fillStyle默认值fillStyle=black
+            drew(0,"fill");
+
+            // strokeStyle默认值strokeStyle=black
+            drew(1,"stroke");
+
+            // 设置纯色
+            ctx.fillStyle = "red";
+            drew(2,"fill");
+
+            ctx.strokeStyle = "blue";
+            drew(3,"stroke");
+
+             // 透明度值>0,<1值越低，越透明，值>=1时为纯色，值<=0时为完全透明
+            ctx.fillStyle = "rgba(255,0,0,0.5)";
+            drew(4,"fill");
+
+            ctx.strokeStyle = "rgba(255,0,0,0.5)";
+            drew(5,"stroke");
+
+        }();
+
+        // 清除canvas全部内容，只需对其width进行改变即可
+        $("#clearVanvas").on({
+            click:function(event){
+                var event_id = event.target.id;
+
+                // 清除全部
+                if (event_id === "clearAll") {
+
+                    canvas.width++;
+                    canvas.width--;
+
+                } else if (/clearRect[\d]/g.test(event_id)) {
+                    var rect = rectAttr[event_id.split("clearRect")[1]-1];
+
+                    //线的宽度
+                    var lineWidth = ctx.lineWidth;
+                    ctx.clearRect(rect.x-lineWidth,rect.y-lineWidth,rect.w+2*lineWidth,rect.h+2*lineWidth);
+                }
+
+            }
+        },"button");
+
+    </script>
+</html>
