@@ -6,10 +6,10 @@
         <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
         <title>canvas基本用法-圆形</title>
         <style type="text/css">
-             body{
+            body{
                 padding: 10px;
             }
-            #mycanvas1{
+            canvas{
                 border: 1px solid red;
             }
         </style>
@@ -18,32 +18,17 @@
 
 
     <body>
-        <canvas id="mycanvas1"></canvas>
+        <canvas id="mycanvas1" width="400" height="300"></canvas>
+        <canvas id="mycanvas2" width="400" height="300"></canvas>
     </body>
 
     <script type="text/javascript">
-        var canvas = document.querySelector("#mycanvas1");
-        var ctx = canvas.getContext("2d");
 
-        var drew = function(index,drewtype){
-            var rect = rectAttr[index];
-            ctx[drewtype+"Rect"](rect.x,rect.y,rect.w,rect.h);
-        };
-
-        /**
-         * [
-         * 1.设置canvas的大小，chrome 中canvas默认值是300x150大小，如果通过css来设置canvas的高宽，则会现对于默认大小将图像缩放
-         * 2.不建议通过css的方式来设置canvas 的大小,直接通过属性的方式来设置
-         * 3.设置大小需要放在最前面，否则改变大小会直接清除canvas内容
-         * @return {[type]} [description]
-         */
+        // 绘制圆形
         ~function(){
-            canvas.setAttribute("width","400");
-            canvas.setAttribute("height","300");
-        }();
+            var canvas = document.querySelector("#mycanvas1");
+            var ctx = canvas.getContext("2d");
 
-        // 绘制矩形
-        ~function(){
             ctx.beginPath();
             ctx.arc(200, 150, 100, 0, Math.PI * 2, true);
             //不关闭路径路径会一直保留下去，当然也可以利用这个特点做出意想不到的效果
@@ -52,6 +37,53 @@
             ctx.fill();
 
         }();
+
+        ~function draw23(id) {
+            var canvas = document.getElementById(id);
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext('2d');
+            var n = 0;
+
+            //左侧1/4圆弧
+            context.beginPath();
+            context.arc(100, 75, 50, 0, Math.PI/2 , false);
+            context.fillStyle = 'rgba(255,0,0,0.25)';
+            context.fill();
+            context.strokeStyle = 'rgba(255,0,0,0.25)'
+            context.closePath();
+            context.stroke();
+
+            //左侧1/2圆弧
+            context.beginPath();
+            context.arc(100, 225, 50, 0, Math.PI , false);
+            context.fillStyle = 'rgba(255,0,0,0.25)';
+            context.fill();
+            context.strokeStyle = 'rgba(255,0,0,0.25)'
+            context.closePath();
+            context.stroke();
+
+            //右侧1/3圆弧
+            context.beginPath();
+            context.arc(300, 75, 50, 0, Math.PI/4 , false);
+            context.fillStyle = 'rgba(255,0,0,0.25)';
+            context.fill();
+            context.strokeStyle = 'rgba(255,0,0,0.25)';
+            context.closePath();
+            context.stroke();
+
+            //右侧3/4圆弧
+            context.beginPath();
+            context.arc(300, 225, 50, 0, Math.PI*1.5 , false);
+            context.fillStyle = 'rgba(255,0,0,0.25)';
+            context.fill();
+            context.strokeStyle = 'rgba(255,0,0,0.25)';
+
+            // fillpath 是说封闭图形，即从起点画一条想到终点
+            context.closePath();
+            context.stroke();
+        }("mycanvas2");
 
     </script>
 </html>
