@@ -4,6 +4,4 @@
     $arr = array("ret"=>0,"message"=>"输入");
 
     echo ('{"ret":0,"message":"我来测试编码"}');
-
-    filemtime();
 ?>
