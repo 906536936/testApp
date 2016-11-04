@@ -2,7 +2,6 @@
 ##平时做测试的相关页面
 
 ###文件目录说明
-- algorithm: 常用算法相关
 - AOP：通过js模仿AOP，在方法前后插入方法
 - BFC：对BFC和模型的研究例子
 - canvas：canvas例子
@@ -24,4 +23,3 @@
 - tempalte: art-template的小例子
 - timemanage：时间管理基础模型
 - webworker：webworker小例子
-- deffered： 用于测试deffered对象的使用方法
