@@ -8,7 +8,6 @@
 - chromcrx：chrome插件例子
 - css3: CSS3的例子，主要做了一些loading效果图
 - downloadFile: 通过A标签的download 属性，通过前端进行文件下载
-- fastclick: 模拟fastclick的原理
 - flexbox : 用于研究flexbox的例子
 - flaot：float属性的研究
 - html5：属性的研究例子
