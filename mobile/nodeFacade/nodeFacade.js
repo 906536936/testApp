@@ -2,7 +2,7 @@
     var TOUCHSTART,TOUCHEND;
 
     // normal mobile
-    if (typeof window.oontouchstart != "undefined") {
+    if (typeof window.ontouchstart != "undefined") {
         TOUCHSTART = "touchstart",
         TOUCHEND   = "touchend";
 

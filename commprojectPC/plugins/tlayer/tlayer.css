@@ -1,0 +1,258 @@
+html, body, .layer-button {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+/* layer公用类 开始 */
+
+.layer-box-wraper,
+.layer-box-wraper * {
+    padding: 0px;
+    margin: 0px;
+}
+
+.layer-box-wraper {
+    -webkit-touch-callout: none;  
+    -webkit-user-select: none;  
+    -khtml-user-select: none;  
+    -moz-user-select: none;  
+    -ms-user-select: none;  
+    user-select: none;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.layer-box-wraper .layer-box-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    zoom: 1;
+}
+
+
+.layer-box-header,
+.layer-box-footer {
+    font-family: "宋体", "微软雅黑", Arial;
+    font-size: 14px;
+}
+
+.layer-box-block-buttons {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.layer-button {
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    float: left;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* layer公用类 结束 */
+
+/* 工具类 开始 */
+
+.ml25 {
+    margin-left: 25px;
+}
+
+.pl25 {
+    padding-left: 25px;
+}
+
+.p020 {
+    padding: 0 20px;  
+}
+
+/* 工具类 结束 */
+
+/* header 开始 */
+
+.layer-box-header {
+    position: relative;
+    color: #FFF;
+    background-color: #2F6FAC;
+    padding: 0 20px;
+    height: 30px;
+}
+
+.layer-box-header .layer-box-block-buttons {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: inline;
+}
+
+.layer-box-header .layer-button {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#layer-cancel {
+    background-color: #2F6FAC;
+}
+
+#layer-cancel:hover {
+    background-color: #D23C0A;
+}
+
+#layer-cancel:active {
+    background-color: #A02814;
+}
+
+/* header 结束 */
+
+/* content 开始 */
+
+.layer-box-content-wraper {
+    position: relative;
+    padding: 15px 0px;
+    background: white;
+    display: table;
+    width: 100%;
+}
+
+.layer-box-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.layer-box-table {
+    position: relative;
+    height: 100%;
+    *top: 50%;
+    display: table;
+    margin: 0 auto;
+}
+    
+.layer-box-table-cell {
+    *position: relative;
+    *top: -50%;
+    zoom: 1;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.layer-box-content-inner {
+    *position: relative;
+    *top: 50%; 
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0px 20px;
+    padding: 0px 15px;
+    text-align: center;
+    zoom: 1;
+    transition: width .3s ease-in-out, height .3s ease-in-out;
+    -webkit-transition: width .3s ease-in-out, height .3s ease-in-out;
+    -moz-transition: width .3s ease-in-out, height .3s ease-in-out;
+    -o-transition: width .3s ease-in-out, height .3s ease-in-out;
+    -ms-transition: width .3s ease-in-out, height .3s ease-in-out;
+}
+
+.layer-box-content-inner img {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    margin-top: -20px;
+    *top: -50%;
+    *margin-top: 0px;
+}
+
+.layer-box-content {
+    *position: relative;
+    *top: -50%; 
+}
+
+.layer-box-html {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    text-align: left;
+    background: no-repeat 0px 1px;
+    line-height: 20px;
+}
+
+iframe.layer-box-content {
+    border: none;
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+/* loading->content 开始 */
+
+.layer-loading-box .layer-box-html {
+    background-position: 0px 3px;
+}
+
+/* loading->content 结束 */
+
+/* content 结束 */
+
+
+/* footer 开始 */
+
+.layer-box-footer,
+.layer-box-footer .layer-button {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+.layer-box-footer {
+    height: 35px;
+    position: relative;
+    background-color: #FFF;
+    border-top: 1px solid #DCDCDC;
+}
+
+.layer-box-footer .layer-box-block-buttons {
+    position: relative;
+    top: -1px;
+}
+
+.layer-box-footer .layer-button {
+    color: #505050;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.layer-box-footer .layer-button:hover {
+    color: #FFF;
+    background-color: #2F6FAC;
+}
+
+/* confirm->footer 开始 */
+.layer-confirm-box .layer-button {
+    border-left: 1px solid #DCDCDC;
+}
+
+.layer-confirm-box .layer-button.first-child {
+    border-left: none;
+}
+
+/* confirm->footer 结束 */
+
+/* footer 结束 */
+
+
+/*------------------------重写弹出框插件样式----------------begin*/
+.layer-box-content-wraper,.layer-box-content-inner{padding: 0;}
+.layer-box-header,.p020{padding:0 20px;}
+.layer-box-html{font-size: 14px;}

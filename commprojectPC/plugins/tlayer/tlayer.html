@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框tLayer测试</title>
+    <link rel="stylesheet" href="tlayer.css" />
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.tlayer.js"></script>
+</head>
+<body>
+    <h1>tLayer 弹出框测试</h1>
+    <button id="alert">alert测试</button>
+    <button id="confirm">confirm测试</button>
+    <button id="msg">msg测试</button>
+    <button id="loading">loading测试</button>
+    <button id="content">content测试</button>
+    <button id="custom">custom测试</button>
+    <button id="showcustom">显示custom测试</button>
+    <div><button id="click">click</button></div>
+    <!-- <iframe id="marinFrame" src="tlayer.html"></iframe> -->
+    <script type="text/javascript">
+        $.alert("我是弹出阿非的嘎达发发发打发的发生框@");
+        $("#alert").bind("click", function () {
+            $.alert({
+                context: top.document,
+                zIndex: 300,
+                onInit: function (layerID) {
+                    $(this).find(".layer-box-html").html("adaffsaf");
+                    console.log(layerID);
+                    console.log($.tlayer);
+                },
+                header: {
+                    buttons: [{
+                        callback: function (layerID) {
+                            console.log(layerID);
+                        }
+                    }]
+                },
+                content: {
+                    html: "测试buttons"
+                },
+                footer: {
+                    buttons: [{
+                        callback: function (layerID) {
+                            console.log(layerID);
+                        }
+                    }]
+                }
+            });
+        });
+
+        $("#loading").bind("click", function () {
+            var loading = $.loading("我会在3秒后消失哦！");
+            setTimeout(function () {
+                tLayer("close", loading);
+            }, 3000);
+        });
+
+        $("#confirm").bind("click", function () {
+            $.confirm({
+                context: top.document,
+                zIndex: 300,
+                content: {
+                    html: "是否确定删除？"
+                },
+                footer: {
+                    buttons: [{
+                        callback: function (layerID) {
+                            console.log(layerID);
+                        }
+                    }, {
+                        callback: function (layerID) {
+                            console.log(layerID);
+                        }
+                    }]
+                }
+            });
+            //$.msg({zIndex: 400, showMask: false,content:{html:"我在这里等着你回来哦", icon: "icon.png"}});
+            //$.msg({zIndex:200,content:{html:"我在这里等着你回来哦", icon: "icon.png"}});
+        });
+
+        $("#msg").bind("click", function () {
+            $.msg({zIndex:200,content:{html:"我在这里等着你回来哦", icon: "icon.png"}});
+        });
+        
+        $("#content").bind("click", function () {
+           $.content({
+                width: "960px",
+                height: "600px",
+                header: {
+                    text: "百度"
+                },
+                content: {
+                    src: "http://www.baidu.com"
+                },
+                footer: {
+                    buttons: [{
+                        buttonID: "sure",
+                        buttonText: "确定",
+                        callback: function (layerID) {
+                            console.log(layerID);
+                        }
+                    }, {
+                        buttonID: "cancel",
+                        buttonText: "取消",
+                        callback: function (layerID) {
+                            $.tLayer("close", layerID);
+                        }
+                    }]
+                }
+            });
+        });
+
+        var customLayer = null;
+        $("#custom").bind("click", function () {
+            customLayer = tLayer("custom", {
+                width: "400px",
+                height: "500px",
+                context: top.document,
+                header: {
+                    height: "",
+                    text: "上传文件",
+                    buttons     : [{
+                        width       : "30px",
+                        buttonID    : "layer-cancel",
+                        buttonText  : "关闭",
+                        buttonBGImg : "cancel.png",
+                        callback    : function (layerID) {
+                            $.tLayer("hide", layerID);
+                        }
+                    }]
+                },
+                content: {
+                    height: "435px",
+                    src: "../uploadfive/uploadfive.html"
+                },
+                footer: {
+                    height: "",
+                    buttons: [{
+                        buttonID: "sure",
+                        buttonText: "确定",
+                        width: "90px",
+                        callback: function (layerID) {
+                            console.log(layerID);
+                        }
+                    }]
+                }
+            });
+        });
+        
+        $("#showcustom").bind("click", function () {
+            tLayer("show", customLayer);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/**
+ * 上传按钮
+ */
+.uploadfive-button { 
+    position: relative;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    background: #3F4037;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#7B7E6D), to(#3F4037));
+    background-image: -moz-linear-gradient(top, #7B7E6D, #3F4037);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7B7E6D", endColorstr="#3F4037");
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#7B7E6D', endColorstr='#3F4037')";
+    color: #FFF;
+    overflow: hidden;
+    text-align: center;
+    font-family: "微软雅黑", "黑体", Arial;
+    border-radius: 15px;
+    animation: breathe 3s infinite;
+    -webkit-animation: breathe 3s infinite;
+    -moz-animation: breathe 3s infinite;
+    -o-animation: breathe 3s infinite; 
+}
+
+.uploadfive-button:hover {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#7B7E6D), to(#5C5E51));
+    background: -moz-linear-gradient(top, #7B7E6D, #5C5E51);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7B7E6D", endColorstr="#5C5E51");
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#7B7E6D', endColorstr='#5C5E51')";
+}
+
+.uploadfive-button:active {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#3F4037), to(#7B7E6D));
+    background: -moz-linear-gradient(top, #3F4037, #7B7E6D);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3F4037", endColorstr="#7B7E6D");
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#3F4037', endColorstr='#7B7E6D')";
+}
+
+.uploadfive-button input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 100px;
+    width: 200px;
+    height: 50px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.uploadfive-button span {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+@keyframes breathe {
+    0% { box-shadow: 0 0 5px rgba(0, 0, 0, .3); }
+    50% { box-shadow: 0 0 8px rgb(0, 0, 0); }
+    100% { box-shadow: 0 0 8px rgba(0, 0, 0, .3); }
+}
+
+@-webkit-keyframes breathe {
+    0% { box-shadow: 0 0 5px rgba(0, 0, 0, .3); -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3); }
+    50% { box-shadow: 0 0 10px rgb(0, 0, 0); -webkit-box-shadow: 0 0 8px rgb(0, 0, 0); }
+    100% { box-shadow: 0 0 10px rgba(0, 0, 0, .3); -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .3); }
+}
+
+@-moz-keyframes breathe {
+    0% { box-shadow: 0 0 5px rgba(0, 0, 0, .3); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .3); }
+    50% { box-shadow: 0 0 10px rgb(0, 0, 0); -moz-box-shadow: 0 0 8px rgb(0, 0, 0); }
+    100% { box-shadow: 0 0 10px rgba(0, 0, 0, .3); -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .3); }
+}
+    
+@-o-keyframes breathe {
+    0% { box-shadow: 0 0 5px rgba(0, 0, 0, .3); -o-box-shadow: 0 0 5px rgba(0, 0, 0, .3); }
+    50% { box-shadow: 0 0 10px rgb(0, 0, 0); -o-box-shadow: 0 0 8px rgb(0, 0, 0); }
+    100% { box-shadow: 0 0 10px rgba(0, 0, 0, .3); -o-box-shadow: 0 0 8px rgba(0, 0, 0, .3); }
+}
+
+/**
+ * 上传队列
+ */
+.uploadfive-queue-item {
+    position: relative;
+    width: 390px;
+    height: 42px;
+    font-size: 14px;
+    background: #F5F6F7;
+    padding-top: 8px;    
+    color: #616161;
+    margin-bottom: 5px;
+    border: 1px solid #E2E2E2;
+}
+
+.uploadfive-queue-item .cancel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    background: url(uploadfive-cancel.png) no-repeat center center;
+}
+
+.uploadfive-queue-item .cancel a {
+    display: block;
+}
+
+.uploadfive-queue-item .fileName {
+    padding-left: 5px;
+}
+
+.uploadfive-queue-item .uploadfive-progress {
+    position: absolute;
+    left: 5px;
+    bottom: 8px;
+    width: 380px;
+    height: 4px;
+    background: #EEE;
+}
+
+.uploadfive-queue-item .uploadfive-progress .uploadfive-progress-bar {
+    height: 4px;
+    width: 1px;
+    background: #004B84;
+}

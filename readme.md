@@ -10,15 +10,13 @@
 - downloadFile: 通过A标签的download 属性，通过前端进行文件下载
 - flexbox : 用于研究flexbox的例子
 - flaot：float属性的研究
-- html5：属性的研究例子
 - imgLoad: 用于测试display为none时，图片的加载情况
-- jQuery 3.0：简单测试jq3.0的变化
 - linebox：用于行框的研究小例子
 - mobile：移动端的例子
 - php：学习php的例子
 - preload： 图片预加载的例子
 - scroll： 用于研究滑动到顶部，底部的例子
 - singlePageTest：部分单个页面的测试页面
-- tempalte: art-template的小例子
 - timemanage：时间管理基础模型
 - webworker：webworker小例子
+- commprojectPC：待整理的公共库

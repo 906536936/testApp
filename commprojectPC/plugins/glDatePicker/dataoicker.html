@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*------------显示日历------------------------------------begin*/
+		.pickercontainer{float: left;vertical-align: middle;display:inline-block;position: relative;height:25px;line-height: 25px;}
+		.pickercontainer:before{content: '';background-image:url(styles/dropdown.png);background-position:0 0;display: inline-block;position: absolute;z-index: 5;width: 7px;height: 6px;margin-top:11px;left: 100%;margin-left: -13px;}
+		.pickercontainer.datepcikerFocus:before{background-position:0 -16px;margin-top:9px;}
+		.pickercontainer>div{width:215px; height:188px;position:absolute;top: auto!important;left: auto!important;z-index: 10;outline: 1px solid #969696;background: white;}
+		.pickercontainer>input{width: 100%;text-indent: 3px;height: 25px;line-height: 25px;border: 0px;outline: 1px solid #A9A9A9; }
+		.pickercontainer>input:focus{border: none;outline: 1px solid #1780fb;outline-offset:0px;}
+		.pickercontainer>div{margin-top: 1px;display: none;}
+		/*------------显示日历-------------------------------------end*/
+	</style>
+	<script type="text/javascript" src="../jquery1.10.2.min.js"></script>
+	<script type="text/javascript" src="glDatePicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/glDatePicker.flatwhite.css"/>
+	<script type="text/javascript">
+		$(function(){
+			var dataPickerPara = {
+				showAlways: false,
+				cssName: 'flatwhite',
+				allowMonthSelect: true,
+				allowYearSelect: true,
+				prevArrow: '&ensp;&lt;',
+				nextArrow: '&gt;&ensp;',
+			    dowOffset: 1,                                                   //每周第一天，0表示是周日，1是周一
+			    onShow: function(cal){
+			    	cal.show();
+			    	$(cal).parent().addClass("datepcikerFocus");
+			    },
+			    onHide: function(cal){
+			    	cal.hide();
+			    	$(cal).parent().removeClass("datepcikerFocus");
+			    },
+			    onClick: (function(el, cell, date, data,pattern){
+			    	el.val(date.toLocaleDateString());
+			    	$(el).removeClass('placeholder');                   
+			    })
+			};
+			$("#startdateBegin").glDatePicker(dataPickerPara);
+		});
+	</script>
+</head>
+<body>
+	<div class='pickercontainer'>
+	    <input type="text" placeholder='请选择' id="startdateBegin" UNSELECTABLE='on' gldp-id="startdateBegin" />
+	    <div gldp-el="startdateBegin"></div>
+	</div>
+</body>
+</html>

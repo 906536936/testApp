@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>分页插件</title>
+	<link rel="stylesheet" type="text/css" href="pages.css"/>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="pages.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $pages=$(".pages .pageBar").showPages({
+				url:"http://access.homed.me/recommend/release/get_history_list?accesstoken=TOKEN4002",
+				pagesIndex:'pageidx',
+				pagesNumber:'pagenum',
+				currentPage:1,
+				pageSize:2,
+				inputVale:"",
+				numberSize:10,
+				success:function(data,pagsIndex){
+					console.log(data);
+				},
+				error:function(xmlhttp,error,pagsIndex){
+					cosnole.log(xmlhttp);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="pages" style="text-align: center;">
+		<div class="pageBar"></div>
+	</div>
+</body>
+</html>

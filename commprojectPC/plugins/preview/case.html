@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("button").bind("click",function(){
+                $("#mainFrame").show();
+                window.frames["mainFrame"].location.href = "index.html?"+parseInt(Math.random()*10000);
+                $("#mainFrame").load(function(){
+                    $("#mainFrame")[0].contentWindow.listArr = [
+                        "pic/1.png","pic/2.png","pic/3.jpg","pic/4.jpg","pic/5.png",
+                        "pic/6.jpg","JPG/32.jpg","JPG/33.jpg","JPG/34.jpg","JPG/35.jpg",
+                        "JPG/36.jpg","JPG/37.jpg","JPG/38.jpg","JPG/39.jpg","JPG/40.jpg",
+                        "JPG/41.jpg","JPG/42.jpg","JPG/43.jpg","JPG/44.jpg","JPG/45.jpg"
+                    ];
+                    $("#mainFrame")[0].contentWindow.init();
+                    $(this).focus();
+                });
+            });
+        });
+
+        function closeFrame(){
+            $("#mainFrame").hide();
+        }
+    </script>
+</head>
+<body>
+    <button style="position:absolute; left:30px; top:30px;">点击预览</button>
+    <iframe style="position:absolute; left:0px; top:0px; display:none;" id="mainFrame" name="mainFrame" width="100%" height="100%" src="" frameborder="0" scrolling="no"></iframe>
+</body>
+</html>

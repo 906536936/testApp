@@ -1,0 +1,28 @@
+/* 分页条样式 */
+.pageBar{font-family: 'SimSun';font-size: 12px;line-height: 30px;clear: both;height: 30px;margin: 0 auto;text-align: center;vertical-align: middle;display: inline-block;}
+
+/* 包含页码的容器 */
+.pageBar-pages{overflow: hidden; float: left; }
+
+/* 每一个按钮的样式 */
+.pageBar span{line-height: 30px;display: block;float: left;height: 30px;cursor: pointer}
+
+/* 输入页数跳转 */
+.pageBar-gotoPage{text-indent: 3px;float: left;width: 35px;height: 20px;margin-top: 5px;margin-right: 4px;border:none;outline: 1px solid gray;outline-offset: 0;}
+.pageBar-gotoPage:focus{outline: 1px solid  #2F6FAC;}
+
+.pageBar-allPage{float: left;}
+.pageBar-index, .pageBar-prePage, .pageBar-nextPage, .pageBar-lastPage{ padding:0 5px;}
+.pageBar-lastPage{margin-right: 3px;}
+.pageBar-page{width: 30px;}
+
+/* 悬浮样式 */
+.pageBar-index:hover, .pageBar-prePage:hover, .pageBar-nextPage:hover, .pageBar-lastPage:hover,
+span.pageBar-page:hover{color: white;background-color: gray;}
+span.pageBar-pageDisable:hover{color: #969696;background-color: transparent;}
+.pageBar-pageDisable{color: #969696;}
+.pageBar-pageNumFocus{color: white;background-color: #2f6fac;}
+span.pageBar-page.pageBar-pageNumFocus:hover{background: #2f6fac;}
+
+.pageBar .pageSizeSelect{height: 22px; margin-left: 25px;border: 1px solid gray;outline:none;outline-offset: 0; }
+.pageBar .pageSizeSelect:focus{border: 1px solid #2F6FAC;outline:none;}

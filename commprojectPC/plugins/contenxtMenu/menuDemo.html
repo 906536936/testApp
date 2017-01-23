@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>context menu Demo</title>
+	<link rel="stylesheet" type="text/css" href="jquery.contextmenu.css"/>
+	<style type="text/css">
+		.demo,.demo2{
+			margin: 10px;
+			float: left;
+			width:400px;
+			height:400px;
+			border:1px solid red;
+			background-color: orange;
+		}
+		.buttons{
+			clear: left;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="jquery.contextmenu.1.0.0.js"></script>
+	<script type="text/javascript">
+	var setting={
+			children : 						 //菜单项数据
+	 		[
+		 		{
+		 			title:'编辑节目',  		 //菜单项
+		 			icon:'img/edit.png',     //菜单项的图标
+		 			hasChildItem:false,		 //是否出存在子菜单
+		 			callbackEnable:true,	 //回调函数是否可用
+		 			callback:function(){     //点击的回调函数
+		 				alert("编辑节目");
+		 			},
+		 			hotkey:'E'				 //热键
+		 		},
+		 		{
+		 			title:'重新编辑节目',  		 
+		 			icon:'img/edit.png',        		
+		 			hasChildItem:false,		 
+		 			callbackEnable:true,	 
+		 			callback:function(){    
+		 				alert("重新编辑节目");
+		 			},
+		 			hotkey:'R'	
+		 		}
+		 		,
+		 		{
+		 			title:'编辑-回调不可用',
+		 			icon:'img/edit.png',
+		 			hasChildItem:false,
+		 			callbackEnable:false,
+		 			callback:function(e){    
+		 				alert("编辑");
+		 			},
+		 			hotkey:'B'	
+		 		},
+		 		null,
+		 		{
+		 			title:'预览',
+		 			icon:'img/edit.png',
+		 			hasChildItem:true,
+		 			callbackEnable:true,
+		 			children:[
+		 				{
+		 					title:'item211',
+				 			icon:'img/edit.png',
+				 			hasChildItem:true,
+				 			children:[
+				 				{
+				 					title:'item2111',
+						 			icon:'img/edit.png',
+						 			hasChildItem:false,
+						 			callbackEnable:true,
+						 			callback:function(e){
+						 				alert("item2111");
+						 			}
+				 				},{
+				 					title:'item2112',
+						 			icon:'img/edit.png',
+						 			hasChildItem:true,
+						 			callbackEnable:true,
+						 			callback:function(e){
+						 				alert("item2112");
+						 			},
+						 			children:[
+						 				{
+						 					title:'item21121',
+								 			icon:'img/edit.png',
+								 			hasChildItem:false,
+								 			callbackEnable:false,
+								 			callback:function(e){
+								 				alert("item21121");
+								 			}
+						 				},{
+						 					title:'item2122',
+								 			icon:'img/edit.png',
+								 			hasChildItem:false,
+								 			callbackEnable:true,
+								 			callback:function(e){
+								 				alert("item2122");
+								 			}
+						 				},{
+						 					title:'item2123',
+								 			icon:'img/edit.png',
+								 			hasChildItem:false,
+								 			callbackEnable:true,
+								 			callback:function(e){
+								 				alert("item2123");
+								 			}
+						 				},{
+						 					title:'item2124',
+								 			icon:'img/edit.png',
+								 			hasChildItem:false,
+								 			callbackEnable:true,
+								 			callback:function(e){
+								 				alert("item2124");
+								 			}
+						 				}
+						 			]
+				 				}
+				 			],
+				 			callbackEnable:true,
+				 			callback:function(e){
+				 				alert("item211");
+				 			}
+		 				},{
+		 					title:'item212',
+				 			icon:'img/edit.png',
+				 			hasChildItem:false,
+				 			callbackEnable:true,
+				 			callback:function(e){
+				 				alert("item212");
+				 			}
+		 				}
+		 			],
+		 			callback:function(e){
+		 				alert("预览");
+		 			},
+		 			attibutes:[]
+		 		}
+	 		],
+	 		offset:{	 					
+	 			x:5,
+	 			y:5
+	 		},
+	 		zIndex:10,						
+	 		width:'160px',					
+	 		header:"编辑选项"					
+		};
+	$(function(){
+		var $demoMenu=$(".demo").contextMenuL(setting);
+		var $demoMenu2=$(".demo2").contextMenuL();
+		$("#reset").off("click").on("click",function(e){
+			$demoMenu2.contextMenuL(setting);
+		});
+		$("#diablePreview").off("click").on("click",function(e){
+			$demoMenu.contextMenuL("setItem",{
+				itemList:['4'],
+				flag:false
+			});
+		});
+		$("#enblePreview").off("click").on("click",function(e){
+			$demoMenu.contextMenuL("setItem",{
+				itemList:['4'],
+				flag:true
+			});
+		});
+
+	});
+</script>
+</head>
+<body>
+	<div class="demo">context1</div>
+	<div class="demo2">context2</div>
+
+	<div class="buttons">
+		<input type="button" id="reset" value="重置context2" />
+		<input type="button" id="diablePreview" value="禁用context1预览"/>
+		<input type="button" id="enblePreview" value="启用用context1预览"/>
+	</div>
+</body>
+</html>

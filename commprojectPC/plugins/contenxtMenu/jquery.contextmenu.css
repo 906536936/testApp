@@ -1,0 +1,136 @@
+body,html,ul,ol,li,input{
+	margin: 0;
+	padding:0;
+}
+button, input, select, textarea { 
+	font-size:100%; 
+}
+/* IE下a会出现边框的情况 */
+a{
+	border:none;
+	outline: none;
+	text-decoration: none;
+}
+img{
+	border:none;
+}
+a:link,a:visited,a:hover,a:active{
+	color:black;
+}
+a:hover, a:focus {
+	text-decoration: none;
+}
+/* 高版本IE会在input框后面出现“X” */
+input::-ms-clear{
+	display:none;
+}
+/* 高版本IE默认会对文本域加上滚动条 */
+textarea{
+	overflow: auto;
+}
+table,td,tr{
+	border-collapse:collapse;
+	border-spacing: 0px;
+}
+fieldset,img{
+	border:none;
+}
+ol,ul{
+	list-style-type: none;
+}
+button {
+	cursor: pointer;
+}
+.contextmenu{
+	width:150px;
+	height: auto;
+	background:#dcdccd;
+	position: absolute;
+	display: none;
+	z-index: 10;
+	border:none;
+	outline:1px solid #BABABA;
+	background-color: white;
+	font-size:12px;
+	font-family: '微软雅黑';
+	box-shadow: 3px 3px 4px #ABABAB;
+}
+.contextmenu-list{
+	background: white;
+}
+.contextmenu-list li,
+.contextmenu-list li span,
+.contextmenu-head{
+	height: 25px;
+	line-height: 25px;
+}
+.contextmenu-head{
+	width: 100%;
+	display:block;
+	text-indent: 9px;
+	background: #ded;
+	font-weight: bold;
+}
+.contextmenu-list li{
+	width: auto;
+}
+.contextmenu-list li a{
+	width: 100%;
+}
+.contextmenu-list li:hover{
+	background-color: #cbe3ee;
+}
+.contextmenu-list li a,
+.contextmenu-list li div,
+.contextmenu-list li span{
+	display: inline-block;
+}
+.contextmenu-list li span{
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+.contextmenu-list li a div{
+	margin-left: 9px;
+	width: 25px;
+}
+.contextmenu-list li img{
+	vertical-align: middle;
+}
+.contextmenu-list li.contextmenu-divider{
+	height: 0px;
+	border:none;
+	margin: 1px 0px 1px 34px;
+	overflow: hidden;
+	border-top:1px solid #dcdcdc;
+}
+._mask_{
+	background:transparent;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.hasChild{
+	position: relative;
+}
+.hasChild:before{
+	content:'\25B6';
+	display: inline-block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	color: gray;
+	font-size: 13px;
+	right: 15px;
+}
+.hasChild>div.contextmenu{
+	position: relative;
+	top: -25px;
+	width: inherit;
+	left: 100%;
+	display: none;
+}
+li.disbale>a{
+	color: gray;
+}

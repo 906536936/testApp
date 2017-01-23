@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="cursorUtil.js"></script>
+</head>
+<body>
+	<input type="text" class="demo" value="ABCDEFG" />
+	<button id="selectText">选中3-5的字符</button>
+	<button id="insertText">光标后插入N</button>
+	<button id="deleteText">光标后删除2个字母</button>
+</body>
+</html>
+<script type="text/javascript">
+	var $demo = $(".demo");
+	var $selectText = $("#selectText");
+	var $insertText = $("#insertText");
+	var $deleteText = $("#deleteText");
+	$(function(){
+		$demo.on({
+			click:function(){
+				//光标位置
+				var pos = $(this).iGetFieldPos();
+				console.log(pos);
+				$demo.iSelectField(0,this.value.length);
+			}
+		});
+
+		$selectText.on({
+			click:function(){
+				$demo.iSelectField(3,5);
+			}
+		});
+
+		$insertText.on({
+			click:function(){
+				$demo.iAddField("N");
+			}
+		});
+
+		$deleteText.on({
+			click:function(){
+				$demo.iDelField(2);
+			}
+		});
+
+	});
+</script>
