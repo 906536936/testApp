@@ -5,7 +5,6 @@
 - AOP：通过js模仿AOP，在方法前后插入方法
 - BFC：对BFC和模型的研究例子
 - canvas：canvas例子
-- chromcrx：chrome插件例子
 - css3: CSS3的例子，主要做了一些loading效果图
 - downloadFile: 通过A标签的download 属性，通过前端进行文件下载
 - flexbox : 用于研究flexbox的例子
