@@ -10,6 +10,7 @@
 - flexbox : 用于研究flexbox的例子
 - flaot：float属性的研究
 - imgLoad: 用于测试display为none时，图片的加载情况
+- ladyload: 测试IntersectionObserver的懒加载功能
 - linebox：用于行框的研究小例子
 - mobile：移动端的例子
 - php：学习php的例子

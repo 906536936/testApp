@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta charset="<%$app->charset%>"/>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="renderer" content="webkit">
+        <title>测试IntersectionObserver的懒加载功能</title>
+        <link rel="stylesheet" type="text/css" href="../lib/normalize.css"/>
+        <style type="text/css">
+            img{
+                width: 200px;
+                height: 100px;
+                border: none;
+                overflow: hidden;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>测试IntersectionObserver的懒加载功能</h3>
+        <ul>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
+        </ul>
+    </body>
+    <script type="text/javascript">
+        var observer = new IntersectionObserver(
+            function(changes) {
+                changes.forEach(function(change) {
+                    var target = change.target.querySelector('img');
+                    target.setAttribute('src',target.getAttribute('link'));
+                    observer.unobserve(change.target);
+                });
+            }, {});
+
+        ([...document.querySelectorAll('.item')]).forEach(function (item) {
+            observer.observe(item);
+        });
+    </script>
+</html>
