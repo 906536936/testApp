@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta charset="<%$app->charset%>"/>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="renderer" content="webkit">
+        <title>测试懒加载功能</title>
+        <link rel="stylesheet" type="text/css" href="../lib/normalize.css"/>
+        <style type="text/css">
+            html,body{
+                height: 100%;
+            }
+            img{
+                width: 200px;
+                height: 100px;
+                border: none;
+                overflow: hidden;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>测试懒加载功能</h3>
+        <ul class="wrapper">
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+        </ul>
+    </body>
+    <script type="text/javascript">
+
+        var $container = document.querySelector('.wrapper');
+        // 容器的高度
+        var clientHeight = $container.clientHeight;
+        // 容器的下白框的offsetheight
+        var bottomOffset = Math.min(clientHeight + $container.offsetTop,window.innerHeight);
+
+        // 更新页面上的元素
+        var items = [...document.querySelectorAll('.item')];
+        function update(){
+            items.forEach(item=>{
+                // 元素进入视野
+
+                if(item.getBoundingClientRect().top <= bottomOffset && !item.classList.contains('loaded')){
+                    var img = item.querySelector('img');
+                    img.setAttribute('src',img.getAttribute('link'));
+                    item.classList.add('loaded');
+                }
+            });
+        }
+
+        // 滚动及页面加载完成也进行处理
+        document.addEventListener('scroll',function(e){
+            update();
+        });
+
+        update();
+    </script>
+</html>
