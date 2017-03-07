@@ -8,11 +8,11 @@
         <meta charset="<%$app->charset%>"/>
         <meta name="format-detection" content="telephone=no" />
         <meta name="renderer" content="webkit">
-        <title>测试懒加载功能</title>
-        <link rel="stylesheet" type="text/css" href="../lib/normalize.css"/>
+        <title>测试图片懒加载功能</title>
         <style type="text/css">
             html,body{
                 height: 100%;
+                overflow-y: hidden;
             }
             img{
                 width: 200px;
@@ -23,41 +23,44 @@
             ul{
                 margin: 0;
                 padding: 0;
+                height: 400px;
+                overflow-y: auto;
             }
         </style>
     </head>
     <body>
-        <h3>测试懒加载功能</h3>
+        <h3>测试图片懒加载功能</h3>
         <ul class="wrapper">
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_04.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module02_01.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_01.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module03_02.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_01.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module04_02.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_02.jpg" alt="加载中"></li>
-            <li class="item"><img src="#" link="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038543716.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038574300.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038688226.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038706326.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038721786.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038734090.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038767907.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038787096.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038800586.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038913255.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488038965040.jpg" alt="加载中"></li>
+            <li class="item"><img src="#" link="http://difang.kaiwind.com/zhejiang/jctp/201407/18/W020140718488039010889.jpg" alt="加载中"></li>
         </ul>
     </body>
     <script type="text/javascript">
-
+        // 用于滚动的容器
         var $container = document.querySelector('.wrapper');
         // 容器的高度
         var clientHeight = $container.clientHeight;
-        // 容器的下白框的offsetheight
+        // 容器的下边框的offsetheight，当容器的下边框不在可视区域之内是，屏幕高度作为下边框
         var bottomOffset = Math.min(clientHeight + $container.offsetTop,window.innerHeight);
+        // 需要用于更新的元素
+        var items = [...document.querySelectorAll('.item')];
 
         // 更新页面上的元素
-        var items = [...document.querySelectorAll('.item')];
         function update(){
             items.forEach(item=>{
-                // 元素进入视野
-
-                if(item.getBoundingClientRect().top <= bottomOffset && !item.classList.contains('loaded')){
+                // 元素进入视野，且没有进行处理过
+                if(item.getBoundingClientRect().top <= bottomOffset &&
+                    !item.classList.contains('loaded')){
                     var img = item.querySelector('img');
                     img.setAttribute('src',img.getAttribute('link'));
                     item.classList.add('loaded');
@@ -66,10 +69,9 @@
         }
 
         // 滚动及页面加载完成也进行处理
-        document.addEventListener('scroll',function(e){
+        update();
+        $container.addEventListener('scroll',()=>{
             update();
         });
-
-        update();
     </script>
 </html>
