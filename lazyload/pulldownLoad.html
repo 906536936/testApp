@@ -26,6 +26,7 @@
                 height: 500px;
                 overflow: auto;
                 border: 1px solid #dedede;
+                text-align: center;
             }
         </style>
     </head>
@@ -41,7 +42,11 @@
             <li><img src="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_03.jpg" alt="加载中"></li>
     </body>
     <script type="text/javascript">
-        var tempplate = '<img src="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/module01_01.jpg" alt="加载中">';
+        function getDom(){
+            var img = ['module01_01.jpg','module01_02.jpg','module01_03.jpg','module01_04.jpg'][(Math.random()*10>>0)%4];
+            var tempplate = '<img src="https://webopsstaticresource-10000538.file.myqcloud.com/nnuniversity/images/university2017/'+img+'" alt="加载中">';
+            return tempplate;
+        }
         var $container = document.querySelector('.wrapper');
         // 可见高度
         var clientHeight = $container.clientHeight;
@@ -53,7 +58,7 @@
             // 滑动到底部了
             if(contentH - clientHeight - scrollTop < 10) {
                 var li = document.createElement('li');
-                li.innerHTML = tempplate;
+                li.innerHTML = getDom();
                 $container.appendChild(li);
             }
         });
