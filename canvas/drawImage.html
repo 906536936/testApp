@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>图片的九宫格</title>
+    </head>
+    <body>
+        <div style="transform: scale(0.6);transform-origin:left top;">
+            <canvas id="mycanvas1"></canvas>
+        </div>
+    </body>
+    <script type="text/javascript">
+        let draw = {
+            imageURL: './asserts/yuan.jpg',
+
+            /**
+             * @param {string} url 图片地址
+             */
+            loadImage(url){
+
+                let promise = new Promise(function (resolve,reject) {
+                    let img = new Image();
+                    img.onload = function () {
+                        resolve(img);
+                    }
+                    img.src = url;
+                });
+                return promise;
+            },
+
+            /**
+             * 设置canvas的属性
+             */
+            setCanvasAttr: function (ctx,canvas,attrMap) {
+                for(let attr in attrMap) {
+                    canvas.setAttribute(attr,attrMap[attr]);
+                }
+
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fillRect (0, 0, attrMap.width, attrMap.height);
+            },
+
+            start(){
+                // 9宫格线条的间隔
+                let gapWidth = gapHeight = 10;
+
+                let canvas = document.querySelector('#mycanvas1');
+                let ctx = canvas.getContext('2d');
+
+                this.loadImage(this.imageURL).then(img => {
+                    // 图片大小
+                    let height = img.height;
+                    let width = img.width;
+
+                    // canvas大小
+                    this.setCanvasAttr(ctx,canvas,{
+                        width: width + gapWidth * 2,
+                        height: height + gapWidth * 2
+                    });
+
+                    // 将图片裁剪为9块
+                    let sWidth = width / 3;
+                    let sHeight = height / 3;
+                    for(let i = 0;i < 3;i++) {
+                        for(let j = 0;j < 3;j++) {
+                            ctx.drawImage(
+                                img,
+                                i*sWidth,j*sHeight,
+                                sWidth,sHeight,
+                                i*sWidth + i%3 * gapWidth, j*sHeight + j%3 * gapHeight,
+                                sWidth, sHeight
+                            )
+                        }
+                    }
+
+                });
+            }
+        };
+
+        draw.start();
+
+    </script>
+</html>

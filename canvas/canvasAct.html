@@ -2,6 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <link rel="stylesheet" type="text/css" href="../lib/normalize.css">
         <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css">
         <title>canvas基本用法-圆形</title>
@@ -15,8 +19,6 @@
         </style>
         <script type="text/javascript" src="../lib/jquery-2.1.1.js"></script>
     </head>
-
-
     <body>
         <canvas id="mycanvas1" width="400" height="300"></canvas>
         <canvas id="mycanvas2" width="400" height="300"></canvas>
@@ -44,14 +46,14 @@
                 return false;
             }
             var context = canvas.getContext('2d');
-            var n = 0;
+
 
             //左侧1/4圆弧
             context.beginPath();
             context.arc(100, 75, 50, 0, Math.PI/2 , false);
             context.fillStyle = 'rgba(255,0,0,0.25)';
             context.fill();
-            context.strokeStyle = 'rgba(255,0,0,0.25)'
+            context.strokeStyle = 'rgba(255,0,0,0.25)';
             context.closePath();
             context.stroke();
 
@@ -60,7 +62,7 @@
             context.arc(100, 225, 50, 0, Math.PI , false);
             context.fillStyle = 'rgba(255,0,0,0.25)';
             context.fill();
-            context.strokeStyle = 'rgba(255,0,0,0.25)'
+            context.strokeStyle = 'rgba(255,0,0,0.25)';
             context.closePath();
             context.stroke();
 
