@@ -6,7 +6,59 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>css3-shapes</title>
+        <link rel="stylesheet" type="text/css" href="../../lib/normalize.css"/>
+        <!-- 参考例子：
+            https://mp.weixin.qq.com/s/D8uGaRPmge_Hka_EMyK6GA
+        -->
+        <style type="text/css">
+            h2{
+                text-align: center;
+            }
+            .triangle{
+                border-right: 50px solid transparent;
+                border-left: 50px solid transparent;
+                border-bottom: 86px gray solid;
+                height: 0;
+                width: 0;
+            }
+            .cut-corners{
+                width: 120px;
+                height: 120px;
+                /* 渐变+多重背景+背景定位 */
+                /*https://developer.mozilla.org/zh-CN/docs/Web/CSS/linear-gradient*/
+                background:
+                    linear-gradient(       /*线性渐变本质模拟的是一个image，因此是可以当做背景的*/
+                        135deg,            /*与Y轴的夹角为135度做线性变换*/
+                        transparent 15px,  /*起点颜色宽度为15px*/
+                        yellowgreen 0px    /*这里必须设置一个值（如果不设置值，则会出现渐变过程，设置值之后，表示这是一个状态，而非终点），
+                                             终点颜色会和最后一个状态的颜色保持一致，所以没有渐变的过程，
+                                             如果出现中间状态，则会出现渐变过程*/
+                    )
+                        top left,          /*"背景的位置"*/
+                    linear-gradient(-135deg, transparent 15px, yellowgreen 0) top right,
+                    linear-gradient(-45deg, transparent 15px, yellowgreen 0) bottom right,
+                    linear-gradient(45deg, transparent 15px, yellowgreen 0) bottom left;
+                background-size: 50% 50%;  /*必须设置背景大小，否则渐变是从起点到终点，会将其他角落的“背景”给覆盖*/
+                background-repeat: no-repeat;
+            }
+        </style>
     </head>
     <body>
+        <h2>css3 实现的形状</h2>
+        <ol>
+            <li>
+                <h4>三角形</h4>
+                <div>
+                    <div class="triangle"></div>
+                </div>
+            </li>
+            <li>
+                <h4>切角</h4>
+                <div>
+                    <div class="cut-corners"></div>
+                </div>
+            </li>
+        </ol>
     </body>
 </html>
