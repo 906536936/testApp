@@ -2,29 +2,33 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <title>Scroll Indicator</title>
+        <link rel="stylesheet" type="text/css" href="../../lib/normalize.css">
+        <style type="text/css">
+            body{
+                margin: 0 auto;
+                background: linear-gradient(to right top, #c69 50%, #ddd 50%);
+                background-size: 100% calc(100% - 100vh + 6px);
+                background-repeat: no-repeat;
+            }
+            body:before {
+                content: '';
+                position: fixed;
+                top: 6px;
+                bottom: 0;
+                width: 100%;
+                z-index: -1;
+                background: white;
+            }
+            body p{
+                margin:0 20%;
+            }
+        </style>
     </head>
-    <link rel="stylesheet" type="text/css" href="../../lib/normalize.css">
-    <style type="text/css">
-        body{
-            margin: 0 auto;
-            background: linear-gradient(to right top, #c69 50%, #ddd 50%);
-            background-size: 100% calc(100% - 100vh + 6px);
-            background-repeat: no-repeat;
-        }
-        body:before {
-            content: '';
-            position: fixed;
-            top: 6px;
-            bottom: 0;
-            width: 100%;
-            z-index: -1;
-            background: white;
-        }
-        body p{
-            margin:0 20%;
-        }
-    </style>
     <body>
             <p>有一次在北大讲座，遇到一位学生问我，“老师，你说学习重要，还是经营人脉重要?”看着他一脸大杂烩的表情，我先拿出本子记下了这个问题，然后告诉他说，这是个比较大的话题，我会仔细写篇文章放在网上的，然后给了他我的博客地址。而后又补了一句，“相信我，所谓的人脉就算重要，也根本没他们说的那么重要”。你愿意与什么样的人成为朋友？让我们细说从头。先动脑思考一下，你愿意与什么样的人成为朋友？
 
