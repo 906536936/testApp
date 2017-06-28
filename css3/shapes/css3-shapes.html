@@ -12,17 +12,25 @@
             https://mp.weixin.qq.com/s/D8uGaRPmge_Hka_EMyK6GA
         -->
         <style type="text/css">
+            li{
+                display: inline-block;
+                min-width: 30%;
+            }
             h2{
                 text-align: center;
             }
+            /* 三角形 */
             .triangle{
                 border-right: 50px solid transparent;
                 border-left: 50px solid transparent;
-                border-bottom: 86px gray solid;
+                border-bottom: 86px yellowgreen solid;
                 height: 0;
                 width: 0;
+                margin: 0 auto;
             }
+            /* 切角 */
             .cut-corners{
+                margin: 0 auto;
                 width: 120px;
                 height: 120px;
                 /* 渐变+多重背景+背景定位 */
@@ -42,6 +50,72 @@
                 background-size: 50% 50%;  /*必须设置背景大小，否则渐变是从起点到终点，会将其他角落的“背景”给覆盖*/
                 background-repeat: no-repeat;
             }
+            /* 梯形 */
+            .trapezoid{
+                margin: 0 auto;
+                width: 80px;
+                border-bottom: 60px solid yellowgreen;
+                border-left: 40px  solid transparent;
+                border-right: 40px  solid transparent;
+            }
+            /* 五边形 */
+            .five{
+                margin: 0 auto;
+                width: 80px;
+                position: relative;
+                border-bottom: 80px solid yellowgreen;
+                border-left: 40px  solid transparent;
+                border-right: 40px  solid transparent;
+            }
+            .five::after{
+                content: '';
+                position: absolute;
+                left: -40px;
+                top: 80px;
+                border-top: 60px solid yellowgreen;
+                border-left: 80px  solid transparent;
+                border-right: 80px  solid transparent;
+            }
+            /* 六边形 */
+            .six{
+                margin: 0 auto;
+                width: 80px;
+                border-bottom: 67px solid yellowgreen;
+                border-left: 40px  solid transparent;
+                border-right: 40px  solid transparent;
+                position: relative;
+            }
+            .six::after{
+                content: '';
+                position: absolute;
+                left: -40px;
+                top: 67px;
+                width: 80px;
+                border-top: 67px solid yellowgreen;
+                border-left: 40px  solid transparent;
+                border-right: 40px  solid transparent;
+            }
+            .six-corner{
+                border-right: 50px solid transparent;
+                border-left: 50px solid transparent;
+                border-bottom: 86px yellowgreen solid;
+                height: 0;
+                width: 0;
+                margin: 0 auto;
+                position: relative;
+            }
+            .six-corner::after{
+                content: '';
+                border-right: 50px solid transparent;
+                border-left: 50px solid transparent;
+                border-top: 86px yellowgreen solid;
+                height: 0;
+                width: 0;
+                left: -50px;
+                top: 31px;
+                position: absolute;
+                margin: 0 auto;
+            }
         </style>
     </head>
     <body>
@@ -57,6 +131,30 @@
                 <h4>切角</h4>
                 <div>
                     <div class="cut-corners"></div>
+                </div>
+            </li>
+            <li>
+                <h4>梯形</h4>
+                <div>
+                    <div class="trapezoid"></div>
+                </div>
+            </li>
+            <li>
+                <h4>五边形</h4>
+                <div>
+                    <div class="five"></div>
+                </div>
+            </li>
+            <li>
+                <h4>六边形</h4>
+                <div>
+                    <div class="six"></div>
+                </div>
+            </li>
+            <li>
+                <h4>六角形</h4>
+                <div>
+                    <div class="six-corner"></div>
                 </div>
             </li>
         </ol>
