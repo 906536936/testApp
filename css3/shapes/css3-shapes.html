@@ -14,7 +14,9 @@
         <style type="text/css">
             li{
                 display: inline-block;
-                min-width: 30%;
+                min-width: 33%;
+                min-width: 300px;
+                min-height: 200px;
             }
             h2{
                 text-align: center;
@@ -116,6 +118,30 @@
                 position: absolute;
                 margin: 0 auto;
             }
+            .eight-corner{
+                height: 120px;
+                width: 120px;
+                background: yellowgreen;
+                margin: 0 auto;
+                position: relative;
+            }
+            .eight-corner::after{
+                content: '';
+                height: 120px;
+                width: 120px;
+                background: yellowgreen;
+                margin: 0 auto;
+                top: 0;
+                position: absolute;
+                transform: rotateZ(45deg);
+            }
+            .ellipse{
+                width: 120px;
+                height: 160px;
+                margin: 0 auto;
+                background: yellowgreen;
+                border-radius: 70% 70% 70% 70%;
+            }
         </style>
     </head>
     <body>
@@ -155,6 +181,18 @@
                 <h4>六角形</h4>
                 <div>
                     <div class="six-corner"></div>
+                </div>
+            </li>
+            <li>
+                <h4>八角形</h4>
+                <div>
+                    <div class="eight-corner"></div>
+                </div>
+            </li>
+            <li>
+                <h4>椭圆形</h4>
+                <div>
+                    <div class="ellipse"></div>
                 </div>
             </li>
         </ol>
