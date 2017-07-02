@@ -154,50 +154,50 @@
                 clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
             }
             /* ---------------------多边形变换------------------------------- */
-            .react-change{
+            .ract-change1{
                 width: 150px;
                 height: 150px;
                 margin: 0 auto;
                 position: relative;
-                animation: react-change 2s infinite alternate;
+                animation: ract-change1 2s infinite alternate;
                 animation-fill-mode: forwards;
             }
-            .react-change div{
+            .ract-change1 div{
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 left: 0;
                 top: 0;
             }
-            .react-change .a{
+            .ract-change1 .a{
                 background: yellowgreen;
                 -webkit-clip-path: polygon(50% 50%,0% 0%, 0% 100%);
                 clip-path: polygon(50% 50%,0% 0%, 0% 100%);
                 animation: a 2s infinite alternate;
                 animation-fill-mode: forwards;
             }
-            .react-change .b{
+            .ract-change1 .b{
                 background: yellowgreen;
                 -webkit-clip-path: polygon(50% 50%,0% 0%, 100% 0%);
                 clip-path: polygon(50% 50%,0% 0%, 100% 0%);
                 animation: b 2s infinite alternate;
                 animation-fill-mode: forwards;
             }
-            .react-change .c{
+            .ract-change1 .c{
                 background: yellowgreen;
                 -webkit-clip-path: polygon(50% 50%,100% 0%, 100% 100%);
                 clip-path: polygon(50% 50%,100% 0%, 100% 100%);
                 animation: c 2s infinite alternate;
                 animation-fill-mode: forwards;
             }
-            .react-change .d{
+            .ract-change1 .d{
                 background: yellowgreen;
                 -webkit-clip-path: polygon(50% 50%,100% 100%, 0% 100%);
                 clip-path: polygon(50% 50%,100% 100%, 0% 100%);
                 animation: d 2s infinite alternate;
                 animation-fill-mode: forwards;
             }
-            @keyframes react-change{
+            @keyframes ract-change1{
                 0% {
                     width: 150px;
                     height: 150px;
@@ -216,7 +216,8 @@
                     -webkit-clip-path: polygon(17% 0%,0% 100%, 34% 100%);
                     clip-path: polygon(17% 0%,0% 100%, 34% 100%);
                 }
-            }@keyframes b{
+            }
+            @keyframes b{
                 0% {
                     -webkit-clip-path: polygon(50% 50%,0% 0%, 100% 0%);
                     clip-path: polygon(50% 50%,0% 0%, 100% 0%);
@@ -226,7 +227,8 @@
                     -webkit-clip-path: polygon(22% 0%,39% 100%, 56% 0%);
                     clip-path: polygon(22% 0%,39% 100%, 56% 0%);
                 }
-            }@keyframes c{
+            }
+            @keyframes c{
                 0% {
                     -webkit-clip-path: polygon(50% 50%,100% 0%, 100% 100%);
                     clip-path: polygon(50% 50%,100% 0%, 100% 100%);
@@ -236,7 +238,8 @@
                    -webkit-clip-path: polygon(44% 100%,78% 100%, 61% 0%);
                     clip-path: polygon(44% 100%,78% 100%, 61% 0%);
                 }
-            }@keyframes d{
+            }
+            @keyframes d{
                 0% {
                     -webkit-clip-path: polygon(50% 50%,100% 100%, 0% 100%);
                     clip-path: polygon(50% 50%,100% 100%, 0% 100%);
@@ -245,6 +248,27 @@
                     background: green;
                     -webkit-clip-path: polygon(66% 0%,83% 100%, 100% 0%);
                     clip-path: polygon(66% 00%,83% 100%, 100% 0%);
+                }
+            }
+
+            .ract-change2{
+                width: 200px;
+                height: 200px;
+                background: yellowgreen;
+                animation: ract-change2 3s infinite alternate;
+                animation-fill-mode: both;
+            }
+            @keyframes ract-change2{
+                100%,0%{
+                    clip-path: polygon(0% 100%,100% 100%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+                }
+
+                33%{
+                    clip-path: polygon(0% 100%,100% 100%, 100% 0%,0% 0%,0% 0%,0% 0%);
+                }
+
+                66%{
+                    clip-path: polygon(100% 38%, 82% 100%, 82% 100%, 18% 100%,0% 38%, 50% 0%)
                 }
             }
             /* ---------------------多边形变换------------------------------- */
@@ -311,14 +335,20 @@
         <h2>clip-path实现的形状变换</h2>
         <ol>
             <li>
-                <h4>react-change</h4>
+                <h4>ract-change1</h4>
                 <div>
-                    <div class="react-change">
+                    <div class="ract-change1">
                         <div class="a"></div>
                         <div class="b"></div>
                         <div class="c"></div>
                         <div class="d"></div>
                     </div>
+                </div>
+            </li>
+            <li>
+                <h4>ract-change2</h4>
+                <div>
+                    <div class="ract-change2"></div>
                 </div>
             </li>
         </ol>
