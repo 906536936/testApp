@@ -97,6 +97,7 @@
                 border-left: 40px  solid transparent;
                 border-right: 40px  solid transparent;
             }
+            /* 六角星 */
             .six-corner{
                 border-right: 50px solid transparent;
                 border-left: 50px solid transparent;
@@ -118,6 +119,7 @@
                 position: absolute;
                 margin: 0 auto;
             }
+            /* 八边形 */
             .eight-corner{
                 height: 120px;
                 width: 120px;
@@ -135,12 +137,21 @@
                 position: absolute;
                 transform: rotateZ(45deg);
             }
+            /* 椭圆 */
             .ellipse{
                 width: 120px;
                 height: 160px;
                 margin: 0 auto;
                 background: yellowgreen;
                 border-radius: 70% 70% 70% 70%;
+            }
+            /*  10边形 */
+            .ten{
+                width: 150px;
+                margin: 0 auto;
+                height: 150px;
+                background-color: yellowgreen;
+                clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
             }
         </style>
     </head>
@@ -187,6 +198,12 @@
                 <h4>八角形</h4>
                 <div>
                     <div class="eight-corner"></div>
+                </div>
+            </li>
+            <li>
+                <h4>十边形</h4>
+                <div>
+                    <div class="ten"></div>
                 </div>
             </li>
             <li>
