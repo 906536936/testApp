@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="demoWrap"></div>
+    </body>
+    <script type="text" id="demo">
+        <div>
+            <span><%=data.name%></span>
+            <%data.list.forEach(function(item){%>
+                <span><%=item%></span>
+            <%})%>
+        </div>
+    </script>
+    <script type="text/javascript">
+        var RenderUtil = {
+            escape: function(html){
+                return String(html)
+                        .replace(/&(?!\w+;)/g , '&amp;')
+                        .replace(/</g , '&lt;')
+                        .replace(/>/g , '&gt;')
+                        .replace(/"/g , '&quot;')
+                        .replace(/'/g , '&#039;');
+            },
+            complie: function(str){
+                var tpl = str.replace(/\n/g ,'\\n')
+                            .replace(/<%=([\s\S]+?)%>/g , function(match , code){
+                                return '\' + escape('+code+')+\'';
+                            })
+                            .replace(/<%=([\s\S]+?)%>/g , function(match , code){
+                                return '\' + '+ code +' +\'';
+                            })
+                            .replace(/<%([\s\S]+?)%>/g , function(match , code){
+                                return '\';\n '+ code +'\n tpl+=\'';
+                            })
+                            .replace(/\'\n/g,'\'').replace(/\n\'/gm,'\'');
+                tpl = 'tpl = \'' + tpl + '\';';
+                tpl = tpl.replace(/''/g,'\'\\n\'');
+                tpl = 'var tpl =\'\';\n with(obj){\ntry{'+tpl+'\n}catch(e){console.log(\'Template render error => \' ,e)};\n};\n return tpl;';
+                return new Function('obj' , 'escape' , tpl);
+            },
+            render: function(str , data){
+                return this.complie(str)(data , this.escape);
+            }
+        };
+
+        var str = RenderUtil.render(document.querySelector('#demo').innerHTML,{
+            data: {
+                name:'alanzhang',
+                list: [1,2,2,3,4]
+            }
+        });
+
+        document.querySelector('.demoWrap').innerHTML = str;
+    </script>
+</html>
