@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>shadow dom</title>
+    </head>
+    <body>
+        <div id="host"></div>
+        <script type="text/javascript" src="../lib/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+            var shadow = $('#host')[0].attachShadow({
+                mode:'open'
+            });
+            shadow.innerHTML = '<p>Here is some new text</p>';
+            shadow.innerHTML += '<style>p { color: red; }</style>';
+            console.log(shadow);
+        </script>
+    </body>
+</html>
