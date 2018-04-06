@@ -10,9 +10,10 @@
             onload="onPreload(this)"/>
     </head>
     <body>
-        <p>1. 预加载，加载完成之后再执行，不阻塞 window 的 onload</p>
+        <p>1. 预加载，加载完成之后再执行，不阻塞 window 的 onload。<a target="_blank" href="http://mp.weixin.qq.com/s/V3v5g9ZKp0QUTXA99ZRDTA">详细讲解</a></p>
         <p>2. script defer=defer, 脚本会立即下载，但是延迟至整个页面都解析完毕后执行，先于DOMCententLoaded执行</p>
         <p>3. script async，告诉浏览器不让页面等待两个脚本的下载和执行，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步），从而异步加载其他内容，存在多个此类标签时，执行的顺序不确定，在window.onload前执行</p>
+        <img src="./preload.png" />
     </body>
     <script type="text/javascript">
         window.jQuery && alert('preload 前：' + jQuery.name);
