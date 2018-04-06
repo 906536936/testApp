@@ -2,63 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>预加载，且不影响页面的正常解析</title>
-        <style type="text/css" media="screen">
-            img{
-                position:relative;
-                width:500px;
-                height:200px;
-            }
-            img::after {
-              content: attr(broke) "  not found " "\25c6";
-              display: block;
-              font-size: 16px;
-              font-style: normal;
-              font-family: FontAwesome;
-              color: rgb(100, 100, 100);
-
-              position: absolute;
-              top: 5px;
-              left: 0;
-              width: 100%;
-              text-align: center;
-            }
-        </style>
+        <title>preload 预加载</title>
+        <link
+            rel="preload"
+            as="script"
+            href="./../lib/jquery-1.12.4.js"
+            onload="onPreload(this)"/>
     </head>
     <body>
-        <a href="#url1">When the crisis was over,  <object><a href="#url2">Mr. Jones</a></object> left the region immediately.</a>
-        预加载，且不影响页面的正常解析
-        <br/><br/><br/>
-        <img broke="demo.png" alt="  "/>
+        <p>1. 预加载，加载完成之后再执行，不阻塞 window 的 onload</p>
+        <p>2. script defer=defer, 脚本会立即下载，但是延迟至整个页面都解析完毕后执行，先于DOMCententLoaded执行</p>
+        <p>3. script async，告诉浏览器不让页面等待两个脚本的下载和执行，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步），从而异步加载其他内容，存在多个此类标签时，执行的顺序不确定，在window.onload前执行</p>
     </body>
     <script type="text/javascript">
-        window.onload = function() {
+        window.jQuery && alert('preload 前：' + jQuery.name);
+        function onPreload(link) {
+            var script = document.createElement('script');
+            script.src = link.href;
+            document.body.appendChild(script);
 
-            setTimeout(function() {
-
-                // reference to <head>
-                var head = document.getElementsByTagName('head')[0];
-
-                // a new CSS
-                var css = document.createElement('link');
-                css.type = "text/css";
-                css.rel  = "stylesheet";
-                css.href = "demo.css";
-
-                // a new JS
-                var js  = document.createElement("script");
-                js.type = "text/javascript";
-                js.src  = "demo.js";
-
-                // preload JS and CSS
-                head.appendChild(css);
-                head.appendChild(js);
-
-                // preload image
-                new Image().src = "demo.png";
-
-            }, 100000);
-
-        };
+            setTimeout(function(){
+                window.jQuery && alert('preload 后：' + jQuery.name);
+            },0);
+        }
     </script>
 </html>
