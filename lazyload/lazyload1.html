@@ -24,6 +24,9 @@
                 margin: 0;
                 padding: 0;
             }
+            .item{
+                height: 100px;
+            }
             .wrapper{
                 height: 70%;
                 margin: 0;
@@ -99,11 +102,15 @@
         var observer = new IntersectionObserver(
             function(changes) {
                 changes.forEach(function(change) {
-                    var target = change.target.querySelector('img');
-                    target.setAttribute('src',target.getAttribute('link'));
-                    observer.unobserve(change.target);
+                    if (change.intersectionRatio > 0) {
+                        var target = change.target.querySelector('img');
+                        target.setAttribute('src',target.getAttribute('link'));
+                        observer.unobserve(change.target);
+                    }
                 });
-            }, {});
+            }, {
+                threshold: 0.1
+            });
 
         ([...document.querySelectorAll('.item')]).forEach(function (item) {
             observer.observe(item);
