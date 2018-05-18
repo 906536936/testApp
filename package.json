@@ -1,7 +1,7 @@
 {
   "name": "testapp",
   "version": "1.0.0",
-  "description": "- algorithm: 常用算法相关\r - AOP：通过js模仿AOP，在方法前后插入方法\r - BFC：对BFC和模型的研究例子\r - canvas：canvas例子\r - chromcrx：chrome插件例子\r - css3: CSS3的例子，主要做了一些loading效果图\r - downloadFile: 通过A标签的download 属性，通过前端进行文件下载\r - fastclick: 模拟fastclick的原理\r - flexbox : 用于研究flexbox的例子\r - flaot：float属性的研究\r - html5：属性的研究例子\r - imgLoad: 用于测试display为none时，图片的加载情况\r - jQuery 3.0：简单测试jq3.0的变化\r - linebox：用于行框的研究小例子\r - mobile：移动端的例子\r - php：学习php的例子\r - preload： 图片预加载的例子\r - scroll： 用于研究滑动到顶部，底部的例子\r - singlePageTest：部分单个页面的测试页面\r - tempalte: art-template的小例子\r - timemanage：时间管理基础模型\r - webworker：webworker小例子\r - deffered： 用于测试deffered对象的使用方法",
+  "description": "平时做测试的相关页面",
   "main": "angular.min.js",
   "scripts": {
     "pretest": "npm install -d",

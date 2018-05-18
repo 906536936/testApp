@@ -6,12 +6,11 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<title>AOP1</title>
+	<title>js AOP demo</title>
 	<script type="text/javascript">
 		var targetFun =  function(msg){
 			console.log(msg);
 		};
-
 		//函数执行之前的动作
 		Function.prototype.before = function(beforeFn){
 			var _self = this;

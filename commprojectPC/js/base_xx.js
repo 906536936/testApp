@@ -5,14 +5,6 @@
 
 var BASE_UTIL = {
     /**
-     * [I18N 国际化的相关变量]
-     * @type {Object}
-     */
-    I18N:{
-        //数字变汉字
-        num2word: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
-    },
-    /**
      * [EVENT 事件相关的工具方法]
      * @type {Object}
      */
@@ -224,11 +216,11 @@ var BASE_UTIL = {
                 var timeLength = (utcString + "").length;
 
                 //使用的是毫秒数
-                if (timeLength == 13 && !/\D/.test(utcString + "")) { 
+                if (timeLength == 13 && !/\D/.test(utcString + "")) {
                     utcString = Math.floor(utcString - 0);
 
                 //使用的秒数
-                } else if (timeLength == 10 && !/\D/.test(utcString + "")) { 
+                } else if (timeLength == 10 && !/\D/.test(utcString + "")) {
                     utcString = Math.floor(utcString - 0) * 1000;
                 }
 
@@ -242,7 +234,7 @@ var BASE_UTIL = {
             }
 
             //不合法的日期
-            if (isNaN(d.getTime())) { 
+            if (isNaN(d.getTime())) {
                 return "";
             }
 
@@ -316,7 +308,7 @@ var BASE_UTIL = {
          * @return {[type]}          [description]
          */
         getFileName: function(filePath){
-            
+
             if(typeof filePath != "string" || filePath == ""){
                 return {
                     fileName:"",
@@ -350,7 +342,7 @@ var BASE_UTIL = {
             //不支持FileReader对象
             if (typeof FileReader === 'undefined') {
                 console.log("not support FileReader object!");
-                return {};  
+                return {};
             }
 
             //用于构建图片对象
@@ -387,7 +379,7 @@ var BASE_UTIL = {
                     }
                 };
             }
-            
+
         },
         /**
          * [getImgBase64 根据url获取图片的base64 二进制数据]
@@ -438,6 +430,6 @@ var BASE_UTIL = {
             return new File([base64Data],"").size;
         }
     }
-    
+
 };
 

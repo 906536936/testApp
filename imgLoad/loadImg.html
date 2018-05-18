@@ -2,35 +2,33 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>用于测试display为none时，图片的加载情况</title>
         <style type="text/css">
-        body{
-        }
-
-        .hide {
-            display:none;
-        }
-        .div1{
-            background-image:url('2.png');
-        }
-
-        p{
-            background-image:url('3.png');
-        }
+            body{
+            }
+            .hide {
+                display:none;
+            }
+            .div1{
+                background-image:url('2.png');
+            }
+            p{
+                background-image:url('3.png');
+            }
         </style>
     </head>
     <body>
-
         <!--img 标签隐藏-->
         <img class="hide" src="1.png"/>
-
         <!--作为div的背景，div设置display:none-->
         <div class="div1 hide"></div>
-
         <!--作为背景，但是父级元素设置display:none-->
         <div class="hide">
             <p></p>
         </div>
-    </html>
-
-
+    </body>
+</html>
