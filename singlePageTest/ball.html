@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <style type="text/css">
+            .box{
+                height: 300px;
+                width: 400px;
+                position: relative;
+                border: 1px solid black;
+            }
+
+            .box-ball{
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                position: absolute;
+                animation: ax 1.5s linear infinite 0s alternate;
+            }
+            .ball{
+                background: -webkit-radial-gradient(circle, #ddecee, #0377db);
+                background: -o-radial-gradient(circle, #ddecee, #0377db);
+                background: -moz-radial-gradient(circle, #ddecee, #0377db);
+                background: radial-gradient(circle, #ddecee, #0377db);
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                position: absolute;
+                animation: ay 2.5s linear infinite 0s alternate;
+            }
+            @keyframes ax{
+                0%,100%{
+                    transform: translateX(0px);
+                }
+                50%{
+                    transform: translateX(350px);
+                }
+            }
+
+            @keyframes ay{
+                0%,100%{
+                    transform: translateY(0px);
+                }
+                30%{
+                    transform: translateY(250px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="box-ball">
+                <div class="ball"></div>
+            </div>
+        </div>
+    </body>
+</html>
