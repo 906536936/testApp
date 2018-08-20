@@ -6,38 +6,46 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link href="../lib/normalize.css"  rel="stylesheet">
         <style type="text/css">
+            html,body{
+                height: 100%;
+                width: 100%;
+            }
             .box{
-                height: 300px;
-                width: 400px;
+                height: 100%;
+                width: 100%;
                 position: relative;
                 border: 1px solid black;
             }
 
             .box-ball{
-                height: 50px;
-                width: 50px;
-                border-radius: 50%;
+                height: 250px;
+                width: 250px;
                 position: absolute;
-                animation: ax 1.5s linear infinite 0s alternate;
+                z-index: 10;
+                animation: ax 3.5s linear infinite 0s alternate;
             }
             .ball{
-                background: -webkit-radial-gradient(circle, #ddecee, #0377db);
-                background: -o-radial-gradient(circle, #ddecee, #0377db);
-                background: -moz-radial-gradient(circle, #ddecee, #0377db);
-                background: radial-gradient(circle, #ddecee, #0377db);
+                will-change:;
+                position:relative;
+                z-index: 10;
                 height: 100%;
                 width: 100%;
-                border-radius: 50%;
                 position: absolute;
-                animation: ay 2.5s linear infinite 0s alternate;
+                background-image: url(i.png);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                border-radius: 50%;
+                background-attachment: contain;
+                animation: ay 4.5s linear infinite 0s alternate;
             }
             @keyframes ax{
                 0%,100%{
                     transform: translateX(0px);
                 }
                 50%{
-                    transform: translateX(350px);
+                    transform: translateX(calc(100vw - 100%));
                 }
             }
 
@@ -46,7 +54,7 @@
                     transform: translateY(0px);
                 }
                 30%{
-                    transform: translateY(250px);
+                    transform: translateY(calc(100vh - 100%));
                 }
             }
         </style>
@@ -58,4 +66,25 @@
             </div>
         </div>
     </body>
+    <script type="text/javascript" src="../lib/jquery1.10.2.min.js"></script>
+    <script>
+        var i = 0;
+        var box = document.querySelector('.box');
+        var ball = document.querySelector('.box-ball');
+        var timer = setInterval(function(){
+            i++;
+            var cloneNode = ball.cloneNode(true);
+
+            if(i%2) {
+                cloneNode.children[0].style = 'background-image: url(i2.png);';
+            }
+
+            box.appendChild(cloneNode);
+            if(i >= 20){
+                clearInterval(timer);
+            }
+        },800);
+
+
+    </script>
 </html>
