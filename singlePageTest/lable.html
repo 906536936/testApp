@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>label + input</title>
+    <style type="text/css">
+        input{
+            width: 0px;
+            height: 0px;
+            font-size: 0px;
+            border: none;
+        }
+        label{
+            position: relative;
+        }
+        label span{
+            display: none;
+            position: absolute;
+            height: 20px;
+            left: 30px;
+            width: 400px;
+        }
+        label:hover span,
+        input:focus+label span{
+            display: block;
+        }
+        input:focus+label+div{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="txt" name="" id="id"/>
+        <label for="id"><i>真</i><span>我是tips，我是tips，我是tips，是tips</span></label>
+        <div>weijwei</div>
+    </div>
+</body>
+</html>
