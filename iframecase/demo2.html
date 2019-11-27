@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>认购阿里领大奖</title>
+    <link rel="shortcut icon" href="https://passport.futunn.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//static.futunn.com/passport/css/dist/global/common-9c8673bfb70f641a2a646198884c9e2e.css" />
+
+    <!-- rev-hash -->
+    <link rel="stylesheet" href="//static.futunn.com/passport/css/dist/site/loginReg-e5bbdc2d74b85586539c40aa827d05b3.css" />
+    <!-- end -->
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        .box {
+            position: fixed;
+            width: 1000px;
+            height: 70px;
+            z-index: 10;
+            top: 0;
+            left: 50%;
+            margin-left: -500px;
+            right: 10px;
+            background: transparent;
+            text-align: right;
+        }
+        .box a{
+            width: 286px;
+            height: 70px;
+            margin-right: 90px;
+            display: inline-block;
+            background: transparent;
+            cursor: pointer;
+        }
+        .modal{
+            position: fixed;
+            display: none;
+            top: 0;
+            background: white;
+            width: 400px;
+            height: 400px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe
+        id="inlineFrameExample"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        allowfullscreen="true"
+        referrerpolicy="no-referrer"
+        src="https://www.futu5.com"
+    >
+    </iframe>
+    <div class="box">
+        <a href="javascript:void(0)"></a>
+    </div>
+    <div class="modal">
+        <div class="m-form-wrapper m-logreg-wrapper">
+            <div class="logo-box ">
+                <a href="/" class="ui-wrapper-logo">
+                    <img src="//static.futunn.com/passport/images/global/logo_futu5-e4948b492eaded8dd7e4f17524e3becf.svg"
+                        class="ui-form-logo ui-form-logo-futu5 j-compatible-svg">
+                </a>
+                <div style="height:30px;"></div>
+                <div id="loginFormWrapper" class="formWrapper loginFormWrapper">
+                    <form id="form" onsubmit="return false;">
+                        <ul class="ul-form-wrapper">
+                            <li class="ui-input-wrapper ui-content-email"> <input name="email" class="u-input" tabindex="1" type="text" value="" placeholder="牛牛号/手机号/邮箱"> </li>
+                            <li class="ui-input-wrapper"> <input name="password" class="u-input" tabindex="2" type="password" value="" placeholder="输入密码"> </li>
+                        </ul>
+                        <input type="button" class="ui-submit ui-form-submit" value="登录">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="//static.futunn.com/passport/scripts/lib/jquery.min-4f252523d4af0b478c810c2547a63e19.js"></script>
+    <script>
+        $('.box').on('click',function (params) {
+            $('.modal').show();
+        });
+        $('.ui-submit').on('click',function () {
+            var arr = $('#form').serializeArray();
+            console.log('你的数据泄漏了', arr)
+        });
+    </script>
+</html>
