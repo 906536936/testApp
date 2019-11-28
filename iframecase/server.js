@@ -29,8 +29,14 @@ app.use(logger())
     .use(staticServe(staticPath, {
         index: 'jshack.html',
         setHeaders: function (res, path,stat) {
-            console.log(path,stat);
-            res.setHeader('X-Frame-Options','sameorigin');
+            if (path.indexOf('futu5xframe') > -1){
+                // res.setHeader('X-Frame-Options', 'sameorigin');
+                res.setHeader('X-Frame-Options', 'allow-from http://webtouch.com:3000/');
+            } else if (path.indexOf('futu5csp') > -1){
+                res.setHeader('Content-Security-Policy', 'frame-ancestors https://*.futunn.com https://*.futu5.com http://webtouch.com/');
+                // res.setHeader('Content-Security-Policy', 'frame-ancestors https://*.futunn.com https://*.futu5.com http://webtouch.com:3000/');
+            }
+
         }
     }));
 
