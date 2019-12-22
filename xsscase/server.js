@@ -54,6 +54,11 @@ router.get('/input', async (ctx) => {
     await ctx.render('view.html', {
         data: data
     });
+}).get('/dom', async (ctx) => {
+    let data = db.get();
+    await ctx.render('dom.html', {
+        data: data
+    });
 }).post('/save', async (ctx) => {
     db.set(ctx.request.body.name);
     await ctx.redirect('/view');

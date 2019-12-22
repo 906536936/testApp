@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>注册xss</title>
+    <link rel="shortcut icon" href="https://passport.futunn.com/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <form action="/save" method="post" onSubmit="return false">
+        <p id="inputp">请输入名称：
+            <input name="name" id="input"/>
+        </p>
+        <p id="namep" style="display: none;"> 你输入的名称是：
+            <span id="name"></span>
+        </p>
+        <button onclick="comfirm()">确定</button>
+    </form>
+    <script>
+        const $ = function(selector){
+            return document.querySelector(selector);
+        };
+        function comfirm() {
+            let value = $('#input').value;
+            $('#name').innerHTML = value;
+            $('#inputp').style.display = 'none';
+            $('#namep').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
