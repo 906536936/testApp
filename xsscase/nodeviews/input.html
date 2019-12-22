@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>注册xss</title>
+    <link rel="shortcut icon" href="https://passport.futunn.com/favicon.ico" type="image/x-icon">
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/save" method="post">
+        <p>请输入昵称：<input name="name"/></p>
+        <!--';alert(1);'-->
+        <p><input type="submit" value="提交"/></p>
+    </form>
+</body>
+
+</html>
