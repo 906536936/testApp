@@ -54,6 +54,10 @@ router.get('/input', async (ctx) => {
     await ctx.render('view.html', {
         data: data
     });
+}).get('/url', async (ctx) => {
+    await ctx.render('view.html', {
+        data: ctx.request.query.data
+    });
 }).get('/dom', async (ctx) => {
     let data = db.get();
     await ctx.render('dom.html', {
