@@ -55,7 +55,18 @@ router.get('/input', async (ctx) => {
         data: data
     });
 }).get('/url', async (ctx) => {
-    await ctx.render('view.html', {
+    await ctx.render('url.html', {
+        data: ctx.request.query.data
+    });
+}).get('/base', async (ctx) => {
+    await ctx.render('base.html', {
+        data: ctx.request.query.data
+    });
+}).get('/xssprotection', async (ctx) => {
+    ctx.set('X-XSS-Protection','1;report=http://localhost:3000/input');
+    // ctx.set('Content-Security-Policy', 'default-src https');
+    ctx.set('Content-Security-Policy', 'default-src https \'nonce-EDNnf03nceIOfn39fn3e9h3sdfa\'');
+    await ctx.render('xssprotection.html', {
         data: ctx.request.query.data
     });
 }).get('/dom', async (ctx) => {
