@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>view</title>
+    <script src="../lib/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+    <center>
+        <h1>
+            <a href="http://localhost:3000/view">港股美股，我选富途</a>
+        </h1>
+        <button id="send">请求</button>
+    </center>
+</body>
+    <script>
+        $('#send').click(function(params) {
+            $.ajax({
+                type: 'get',
+                url:'http://localhost:3000/view',
+                xhrFields: {
+                    withCredentials: true
+                }
+            });
+        });
+    </script>
+</html>
