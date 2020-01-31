@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>context menu Demo</title>
 	<link rel="stylesheet" type="text/css" href="jquery.contextmenu.css"/>
 	<style type="text/css">
@@ -34,14 +34,14 @@
 		 			hotkey:'E'				 //热键
 		 		},
 		 		{
-		 			title:'重新编辑节目',  		 
-		 			icon:'img/edit.png',        		
-		 			hasChildItem:false,		 
-		 			callbackEnable:true,	 
-		 			callback:function(){    
+		 			title:'重新编辑节目',
+		 			icon:'img/edit.png',
+		 			hasChildItem:false,
+		 			callbackEnable:true,
+		 			callback:function(){
 		 				alert("重新编辑节目");
 		 			},
-		 			hotkey:'R'	
+		 			hotkey:'R'
 		 		}
 		 		,
 		 		{
@@ -49,10 +49,10 @@
 		 			icon:'img/edit.png',
 		 			hasChildItem:false,
 		 			callbackEnable:false,
-		 			callback:function(e){    
+		 			callback:function(e){
 		 				alert("编辑");
 		 			},
-		 			hotkey:'B'	
+		 			hotkey:'B'
 		 		},
 		 		null,
 		 		{
@@ -139,13 +139,13 @@
 		 			attibutes:[]
 		 		}
 	 		],
-	 		offset:{	 					
+	 		offset:{
 	 			x:5,
 	 			y:5
 	 		},
-	 		zIndex:10,						
-	 		width:'160px',					
-	 		header:"编辑选项"					
+	 		zIndex:10,
+	 		width:'160px',
+	 		header:"编辑选项"
 		};
 	$(function(){
 		var $demoMenu=$(".demo").contextMenuL(setting);
