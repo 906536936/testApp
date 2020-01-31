@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>密码去哪里了</title>
+        <link rel="stylesheet" type="text/css" href="http://www.futun5.com:3000/ui.css">
+    </head>
+    <body>
+        <center>
+            <form class="form" onsubmit="return false;">
+                <p>账号：
+                     <input type="text" name="user" placeholder="请输入6位用户名(a-zA-Z0-9)" />
+                </p>
+                <p> 密码：
+                    <input type="password" name="pwd" placeholder="请输入6位密码(a-zA-Z0-9)" />
+                </p>
+                <p> <input type="submit"/></p>
+            </form>
+        </center>
+    </body>
+    <!--这是jquery，未做任何修改-->
+    <script src="../../lib/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $('input').on('input',function () {
+            this.setAttribute('value',this.value);
+        });
+        $('input[type="submit"]').on('click',function(){
+            alert('提交的数据：' + $('.form').serialize());
+        });
+    </script>
+</html>
+
+
+

