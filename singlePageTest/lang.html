@@ -1,0 +1,22 @@
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+    <head>
+        <title>测试lang的作用</title>
+    </head>
+    <body>
+        <p id="test">测试lang的作用,继承至html的lang属性，观察默认的font-family</p>
+        <p lang="en" id="test2">测试lang的作用,单独设置p的lang,观察默认的font-family</p>
+        <p>firefox（72） 会更具lang熟悉设置不同的root font-family，chrome（83）不会这么处理。</p>
+    </body>
+    <script>
+        const lang = document.querySelector('html').lang;
+        function showFont(selector) {
+            const ele = document.querySelector(selector);
+            const currlang = ele.lang || lang;
+            const fm = window.getComputedStyle(ele).fontFamily;
+            alert(`the lang is: ${currlang}, font-family is: ${fm}`);
+        }
+        showFont('#test');
+        showFont('#test2');
+    </script>
+</html>
